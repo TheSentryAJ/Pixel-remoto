@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Wrench, Network, ShieldCheck, Laptop, HardDrive, HelpCircle, Download } from 'lucide-react';
+import { Wrench, Network, ShieldCheck, Laptop, HelpCircle, Download } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -14,21 +14,21 @@ export const services: Service[] = [
     id: 'reparacion-pc',
     name: 'Reparación de Ordenadores',
     description: 'Solución de problemas de hardware y software, optimización y mantenimiento.',
-    price: 'Desde 40€',
+    price: 'Desde 30€', // Ajustado desde 40€
     Icon: Wrench,
   },
   {
     id: 'configuracion-redes',
     name: 'Configuración de Redes',
     description: 'Instalación y configuración de redes domésticas y para pequeñas empresas.',
-    price: 'Desde 50€',
+    price: 'Desde 40€', // Ajustado desde 50€
     Icon: Network,
   },
   {
     id: 'eliminacion-virus',
     name: 'Eliminación de Virus',
     description: 'Limpieza de malware, spyware y virus. Protección antivirus.',
-    price: 'Desde 45€',
+    price: 'Desde 35€', // Ajustado desde 45€
     Icon: ShieldCheck,
   },
   {
@@ -42,8 +42,8 @@ export const services: Service[] = [
     id: 'instalacion-software',
     name: 'Instalación de Software',
     description: 'Instalación de software como AutoCAD, Office, Adobe Suite, etc.',
-    price: 'Consultar',
-    Icon: Download, // Changed from Smartphone to Download
+    price: 'Desde 20€', // Actualizado según solicitud
+    Icon: Download,
   },
   {
     id: 'asesoramiento',
