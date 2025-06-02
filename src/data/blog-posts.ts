@@ -1,3 +1,4 @@
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -9,6 +10,15 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: '4',
+    slug: 'un-vistazo-a-la-tecnologia-moderna',
+    title: 'Un Vistazo a la Tecnología Moderna',
+    summary: 'Explorando las tendencias y herramientas tecnológicas que dan forma a nuestro futuro digital y cómo pueden impactar tu día a día.',
+    date: '2024-07-01',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'abstract technology',
+  },
   {
     id: '1',
     slug: 'troubleshooting-common-wifi-issues',
