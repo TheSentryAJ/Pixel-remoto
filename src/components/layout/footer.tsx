@@ -9,14 +9,14 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-primary">
             <Mountain className="h-6 w-6" />
-            <span className="font-headline">Alhaurín Tech Solutions</span>
+            <span className="font-headline">Antonio - Soluciones Informáticas</span>
           </Link>
           <p className="text-sm">
-            &copy; {currentYear} Alhaurín Tech Solutions. Todos los derechos reservados.
+            &copy; {currentYear} Antonio - Tu Experto Informático. Todos los derechos reservados.
           </p>
           <div className="text-sm">
             <p>Alhaurín el Grande, Málaga</p>
-            <p><a href="mailto:info@alhaurintech.com" className="hover:text-primary">info@alhaurintech.com</a></p>
+            <p><a href="mailto:contacto@antonio.tech" className="hover:text-primary">contacto@antonio.tech</a></p>
           </div>
         </div>
       </div>

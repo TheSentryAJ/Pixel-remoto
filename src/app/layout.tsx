@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Alhaurín Tech Solutions',
-  description: 'Servicios informáticos en Alhaurín el Grande y provincia de Málaga.',
+  title: 'Antonio - Tu Experto Informático en Alhaurín',
+  description: 'Soy Antonio, y ofrezco servicios informáticos personalizados en Alhaurín el Grande y Málaga.',
   icons: {
     icon: '/favicon.ico', 
   },

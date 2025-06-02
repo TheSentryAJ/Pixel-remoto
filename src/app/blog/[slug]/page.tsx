@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     };
   }
   return {
-    title: `${post.title} | Alhaurín Tech Solutions Blog`,
+    title: `${post.title} | El Blog de Antonio`,
     description: post.summary,
   };
 }

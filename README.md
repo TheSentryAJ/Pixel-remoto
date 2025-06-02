@@ -1,5 +1,5 @@
-# Firebase Studio
+# App de Servicios Informáticos de Antonio
 
-This is a NextJS starter in Firebase Studio.
+Esta es una aplicación NextJS creada para Antonio, un técnico informático local.
 
-To get started, take a look at src/app/page.tsx.
+Para empezar, echa un vistazo a `src/app/page.tsx`.

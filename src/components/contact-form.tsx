@@ -66,8 +66,8 @@ export function ContactForm() {
         await new Promise(resolve => setTimeout(resolve, 1500));
         console.log("Form data submitted:", data);
         toast({
-          title: "Mensaje Enviado",
-          description: "Gracias por contactarnos. Te responderemos lo antes posible.",
+          title: "¡Mensaje Recibido!",
+          description: "¡Gracias por contactarme! Te responderé lo antes posible.",
         });
         reset();
         setSuggestedArticles([]);
@@ -117,10 +117,10 @@ export function ContactForm() {
         <Alert className="bg-primary/5 border-primary/20 text-primary">
           <Lightbulb className="h-5 w-5 text-primary" />
           <AlertTitle className="font-headline">
-            {isAISuggesting ? "Buscando artículos relevantes..." : "Artículos que podrían ayudarte:"}
+            {isAISuggesting ? "Buscando artículos que puedan ayudarte..." : "Artículos que podrían ayudarte:"}
           </AlertTitle>
           <AlertDescription className="text-primary/80">
-            {isAISuggesting && <div className="flex items-center"><Loader2 className="h-4 w-4 animate-spin mr-2 inline" /> Cargando...</div>}
+            {isAISuggesting && <div className="flex items-center"><Loader2 className="h-4 w-4 animate-spin mr-2 inline" /> Cargando sugerencias...</div>}
             {!isAISuggesting && suggestedArticles.length > 0 && (
               <ul className="list-disc pl-5 mt-2 space-y-1">
                 {suggestedArticles.map((title, index) => (
@@ -133,7 +133,7 @@ export function ContactForm() {
               </ul>
             )}
             {!isAISuggesting && suggestedArticles.length === 0 && inquiryValue && inquiryValue.length >=20 && (
-                <p>No hemos encontrado artículos directamente relacionados. Por favor, detalla más tu consulta o envíala y te ayudaremos.</p>
+                <p>No he encontrado artículos directamente relacionados. Por favor, detalla más tu consulta o envíamela y te ayudaré.</p>
             )}
           </AlertDescription>
         </Alert>

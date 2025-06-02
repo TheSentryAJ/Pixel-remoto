@@ -29,9 +29,9 @@ export function ServicesSection() {
   return (
     <Container as="section" id="servicios" className="bg-background">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Nuestros Servicios</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Mis Servicios</h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Ofrecemos una amplia gama de servicios informáticos para particulares y empresas.
+          Como tu técnico de confianza, Antonio, ofrezco una amplia gama de servicios informáticos para ayudarte.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
