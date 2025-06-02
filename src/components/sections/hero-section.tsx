@@ -26,9 +26,8 @@ export function HeroSection() {
           <Image
             src="https://placehold.co/600x450.png"
             alt="Técnico informático trabajando con un portátil en un entorno profesional"
-            layout="fill"
-            objectFit="cover"
-            className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            fill={true}
+            className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="computer repair technology"
             priority
           />
