@@ -28,7 +28,7 @@ export function HeroSection() {
             alt="Técnico informático trabajando con un portátil en un entorno profesional"
             fill={true}
             className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-            data-ai-hint="computer repair technology"
+            data-ai-hint="IT technology"
             priority
           />
            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
