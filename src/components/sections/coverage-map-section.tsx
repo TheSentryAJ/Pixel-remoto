@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 export function CoverageMapSection() {
   return (
