@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { MapPin } from 'lucide-react';
 import Link from 'next/link';
@@ -22,16 +21,18 @@ export function CoverageMapSection() {
             Si tiene dudas sobre si cubrimos su zona, no dude en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarnos</Link>.
           </p>
         </div>
-        <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2 group">
-          <Image
-            src="https://placehold.co/800x600.png"
-            alt="Mapa de cobertura de Alhaurín Tech Solutions en Alhaurín el Grande y alrededores"
-            layout="fill"
-            objectFit="cover"
-            data-ai-hint="Alhaurin area"
-            className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-          />
-           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
+        <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2">
+          <iframe
+            src="https://maps.google.com/maps?q=Alhaur%C3%ADn%20el%20Grande%2C%20M%C3%A1laga%2C%20Spain&t=&z=9&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mapa de cobertura interactivo de Alhaurín Tech Solutions"
+            className="w-full h-full"
+          ></iframe>
         </div>
       </div>
     </Container>
