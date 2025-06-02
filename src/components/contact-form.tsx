@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useTransition, useCallback } from 'react';
+import { useState, useTransition } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -9,10 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { suggestArticles } from '@/ai/flows/suggest-articles';
-import { Loader2, Lightbulb, Send } from 'lucide-react';
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import Link from 'next/link';
+import { Loader2, Send } from 'lucide-react';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -26,38 +23,10 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmittingForm, startFormSubmissionTransition] = useTransition();
-  const [isAISuggesting, startAISuggestionTransition] = useTransition();
-  const [suggestedArticles, setSuggestedArticles] = useState<string[]>([]);
 
-  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<ContactFormValues>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
-
-  const inquiryValue = watch("inquiry");
-
-  const fetchSuggestions = useCallback((currentInquiry: string) => {
-    startAISuggestionTransition(async () => {
-      try {
-        const result = await suggestArticles({ inquiry: currentInquiry });
-        setSuggestedArticles(result.articleTitles || []);
-      } catch (error) {
-        console.error("Error suggesting articles:", error);
-        setSuggestedArticles([]);
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    const debouncedFetch = setTimeout(() => {
-      if (inquiryValue && inquiryValue.length >= 20) {
-        fetchSuggestions(inquiryValue);
-      } else {
-        setSuggestedArticles([]);
-      }
-    }, 1000); // Debounce for 1 second
-
-    return () => clearTimeout(debouncedFetch);
-  }, [inquiryValue, fetchSuggestions]);
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     startFormSubmissionTransition(async () => {
@@ -70,7 +39,6 @@ export function ContactForm() {
           description: "Gracias por contactar con Alhaurín Tech Solutions. Le responderemos lo antes posible.",
         });
         reset();
-        setSuggestedArticles([]);
       } catch (error) {
         toast({
           title: "Error al Enviar",
@@ -112,32 +80,6 @@ export function ContactForm() {
         />
         {errors.inquiry && <p className="text-sm text-destructive mt-1">{errors.inquiry.message}</p>}
       </div>
-
-      {(isAISuggesting || suggestedArticles.length > 0) && (
-        <Alert className="bg-primary/5 border-primary/20 text-primary">
-          <Lightbulb className="h-5 w-5 text-primary" />
-          <AlertTitle className="font-headline">
-            {isAISuggesting ? "Buscando artículos que puedan ayudarle..." : "Artículos que podrían ayudarle:"}
-          </AlertTitle>
-          <AlertDescription className="text-primary/80">
-            {isAISuggesting && <div className="flex items-center"><Loader2 className="h-4 w-4 animate-spin mr-2 inline" /> Cargando sugerencias...</div>}
-            {!isAISuggesting && suggestedArticles.length > 0 && (
-              <ul className="list-disc pl-5 mt-2 space-y-1">
-                {suggestedArticles.map((title, index) => (
-                  <li key={index}>
-                    <Link href={`/blog/${title.toLowerCase().replace(/\s+/g, '-').replace(/[?,¿!¡]/g, '')}`} className="hover:underline">
-                      {title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {!isAISuggesting && suggestedArticles.length === 0 && inquiryValue && inquiryValue.length >=20 && (
-                <p>No se han encontrado artículos directamente relacionados. Por favor, detalle más su consulta o envíela y le ayudaremos.</p>
-            )}
-          </AlertDescription>
-        </Alert>
-      )}
 
       <div>
         <Button type="submit" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-all" disabled={isSubmittingForm}>
