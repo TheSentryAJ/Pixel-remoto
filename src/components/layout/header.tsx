@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
             <Mountain className="h-8 w-8" />
-            <span className="font-headline">Antonio - Tu Técnico</span>
+            <span className="font-headline">Alhaurín Tech</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -52,7 +52,7 @@ export function Header() {
                   <div className="flex items-center justify-between p-4 border-b">
                      <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary" onClick={() => setMobileMenuOpen(false)}>
                         <Mountain className="h-7 w-7" />
-                        <span className="font-headline">Antonio - Tu Técnico</span>
+                        <span className="font-headline">Alhaurín Tech</span>
                       </Link>
                     <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
                       <X className="h-6 w-6" />

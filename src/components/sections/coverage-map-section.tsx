@@ -10,22 +10,22 @@ export function CoverageMapSection() {
         <div className="order-2 md:order-1">
           <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary mb-6 flex items-center gap-3">
             <MapPin className="w-8 h-8" />
-            Mi Área de Cobertura
+            Área de Cobertura
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            Ofrezco mis servicios en <strong>Alhaurín el Grande</strong> y me desplazo por toda la <strong>provincia de Málaga</strong>.
+            Ofrecemos nuestros servicios en <strong>Alhaurín el Grande</strong> y nos desplazamos por toda la <strong>provincia de Málaga</strong>.
           </p>
           <p className="text-muted-foreground mb-4">
-            Algunas de las localidades donde ofrezco servicio incluyen: Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola, Marbella, Torremolinos y Málaga capital.
+            Algunas de las localidades donde ofrecemos servicio incluyen: Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola, Marbella, Torremolinos y Málaga capital.
           </p>
           <p className="text-muted-foreground">
-            Si tienes dudas sobre si cubro tu zona, no dudes en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarme</Link>.
+            Si tiene dudas sobre si cubrimos su zona, no dude en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarnos</Link>.
           </p>
         </div>
         <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2 group">
           <Image
             src="https://placehold.co/800x600.png"
-            alt="Mapa de cobertura en la provincia de Málaga donde trabaja Antonio"
+            alt="Mapa de cobertura de Alhaurín Tech Solutions en la provincia de Málaga"
             layout="fill"
             objectFit="cover"
             data-ai-hint="malaga map"

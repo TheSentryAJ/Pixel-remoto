@@ -51,9 +51,9 @@ export function BlogPreviewSection() {
   return (
     <Container as="section" id="blog" className="bg-secondary/30">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Consejos de Mi Blog</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Nuestro Blog Tecnológico</h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Mantente al día con mis últimos artículos y consejos tecnológicos.
+          Manténgase al día con nuestros últimos artículos y consejos tecnológicos.
         </p>
       </div>
       {postsToDisplay.length > 0 ? (

@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   if (!post) {
     return {
       title: 'Artículo no encontrado',
-      description: 'El artículo que buscas no existe o ha sido movido.',
+      description: 'El artículo que busca no existe o ha sido movido.',
     };
   }
   return {
-    title: `${post.title} | El Blog de Antonio`,
+    title: `${post.title} | Blog de Alhaurín Tech Solutions`,
     description: post.summary,
   };
 }

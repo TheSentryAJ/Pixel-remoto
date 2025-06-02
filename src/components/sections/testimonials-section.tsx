@@ -31,9 +31,9 @@ export function TestimonialsSection() {
   return (
     <Container as="section" id="testimonios" className="bg-background">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Lo que Dicen Mis Clientes</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Lo que Dicen Nuestros Clientes</h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          La satisfacción de mis clientes es mi mayor prioridad. Me enorgullece la confianza que depositan en mi trabajo.
+          La satisfacción de nuestros clientes es nuestra mayor prioridad. Nos enorgullece la confianza que depositan en nuestro trabajo.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
