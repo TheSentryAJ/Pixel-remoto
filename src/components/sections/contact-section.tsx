@@ -29,7 +29,7 @@ export function ContactSection() {
               <Phone className="w-6 h-6 text-accent" />
               Llámenos
             </h3>
-            <a href="tel:+34600000000" className="text-muted-foreground hover:text-accent transition-colors block">+34 600 000 000 <span className="text-xs">(Teléfono de contacto)</span></a>
+            <a href="tel:+34684358645" className="text-muted-foreground hover:text-accent transition-colors block">+34 684 358 645 <span className="text-xs">(Teléfono de contacto)</span></a>
           </div>
           <div>
             <h3 className="text-xl font-semibold font-headline text-primary mb-3">Nuestro Horario de Atención</h3>

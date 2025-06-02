@@ -17,6 +17,7 @@ export function Footer() {
           <div className="text-sm">
             <p>Alhaurín el Grande, Málaga</p>
             <p><a href="mailto:info@alhaurintech.com" className="hover:text-primary">info@alhaurintech.com</a></p>
+            <p><a href="tel:+34684358645" className="hover:text-primary">+34 684 358 645</a></p>
           </div>
         </div>
       </div>
