@@ -25,10 +25,10 @@ export function CoverageMapSection() {
         <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2 group">
           <Image
             src="https://placehold.co/800x600.png"
-            alt="Mapa de cobertura de Alhaurín Tech Solutions en la provincia de Málaga"
+            alt="Mapa de cobertura de Alhaurín Tech Solutions en Alhaurín el Grande y alrededores"
             layout="fill"
             objectFit="cover"
-            data-ai-hint="malaga map"
+            data-ai-hint="Alhaurin area"
             className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
           />
            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
