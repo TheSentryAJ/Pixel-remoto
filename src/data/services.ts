@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Wrench, Network, ShieldCheck, Laptop, Smartphone, HelpCircle } from 'lucide-react';
+import { Wrench, Network, ShieldCheck, Laptop, HardDrive, HelpCircle, Download } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -39,11 +39,11 @@ export const services: Service[] = [
     Icon: Laptop,
   },
   {
-    id: 'reparacion-moviles',
-    name: 'Reparación de Móviles',
-    description: 'Solución a problemas comunes en smartphones y tablets.',
-    price: 'Desde 30€',
-    Icon: Smartphone,
+    id: 'instalacion-software',
+    name: 'Instalación de Software',
+    description: 'Instalación de software como AutoCAD, Office, Adobe Suite, etc.',
+    price: 'Consultar',
+    Icon: Download, // Changed from Smartphone to Download
   },
   {
     id: 'asesoramiento',
