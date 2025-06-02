@@ -1,0 +1,154 @@
+"use client";
+
+import { useState, useEffect, useTransition, useCallback } from 'react';
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { suggestArticles } from '@/ai/flows/suggest-articles';
+import { Loader2, Lightbulb, Send } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Link from 'next/link';
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, introduce un correo electrónico válido." }),
+  phone: z.string().optional().refine(val => !val || /^[+]?[0-9\s-()]*$/.test(val), { message: "Número de teléfono inválido." }),
+  inquiry: z.string().min(10, { message: "La consulta debe tener al menos 10 caracteres." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+export function ContactForm() {
+  const { toast } = useToast();
+  const [isSubmittingForm, startFormSubmissionTransition] = useTransition();
+  const [isAISuggesting, startAISuggestionTransition] = useTransition();
+  const [suggestedArticles, setSuggestedArticles] = useState<string[]>([]);
+
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  const inquiryValue = watch("inquiry");
+
+  const fetchSuggestions = useCallback((currentInquiry: string) => {
+    startAISuggestionTransition(async () => {
+      try {
+        const result = await suggestArticles({ inquiry: currentInquiry });
+        setSuggestedArticles(result.articleTitles || []);
+      } catch (error) {
+        console.error("Error suggesting articles:", error);
+        setSuggestedArticles([]); 
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const debouncedFetch = setTimeout(() => {
+      if (inquiryValue && inquiryValue.length >= 20) {
+        fetchSuggestions(inquiryValue);
+      } else {
+        setSuggestedArticles([]);
+      }
+    }, 1000); // Debounce for 1 second
+
+    return () => clearTimeout(debouncedFetch);
+  }, [inquiryValue, fetchSuggestions]);
+
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
+    startFormSubmissionTransition(async () => {
+      try {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        console.log("Form data submitted:", data);
+        toast({
+          title: "Mensaje Enviado",
+          description: "Gracias por contactarnos. Te responderemos lo antes posible.",
+        });
+        reset();
+        setSuggestedArticles([]);
+      } catch (error) {
+        toast({
+          title: "Error al Enviar",
+          description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
+          variant: "destructive",
+        });
+      }
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="name" className="font-medium">Nombre</Label>
+          <Input id="name" {...register("name")} placeholder="Tu nombre completo" className="mt-1" aria-invalid={!!errors.name} />
+          {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
+        </div>
+        <div>
+          <Label htmlFor="email" className="font-medium">Correo Electrónico</Label>
+          <Input id="email" type="email" {...register("email")} placeholder="tu@ejemplo.com" className="mt-1" aria-invalid={!!errors.email} />
+          {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
+        </div>
+      </div>
+      <div>
+        <Label htmlFor="phone" className="font-medium">Teléfono (Opcional)</Label>
+        <Input id="phone" type="tel" {...register("phone")} placeholder="Tu número de teléfono" className="mt-1" aria-invalid={!!errors.phone}/>
+        {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
+      </div>
+      <div>
+        <Label htmlFor="inquiry" className="font-medium">Tu Consulta</Label>
+        <Textarea
+          id="inquiry"
+          {...register("inquiry")}
+          placeholder="Describe tu problema o consulta aquí..."
+          rows={5}
+          className="mt-1"
+          aria-invalid={!!errors.inquiry}
+        />
+        {errors.inquiry && <p className="text-sm text-destructive mt-1">{errors.inquiry.message}</p>}
+      </div>
+
+      {(isAISuggesting || suggestedArticles.length > 0) && (
+        <Alert className="bg-primary/5 border-primary/20 text-primary">
+          <Lightbulb className="h-5 w-5 text-primary" />
+          <AlertTitle className="font-headline">
+            {isAISuggesting ? "Buscando artículos relevantes..." : "Artículos que podrían ayudarte:"}
+          </AlertTitle>
+          <AlertDescription className="text-primary/80">
+            {isAISuggesting && <div className="flex items-center"><Loader2 className="h-4 w-4 animate-spin mr-2 inline" /> Cargando...</div>}
+            {!isAISuggesting && suggestedArticles.length > 0 && (
+              <ul className="list-disc pl-5 mt-2 space-y-1">
+                {suggestedArticles.map((title, index) => (
+                  <li key={index}>
+                    <Link href={`/blog/${title.toLowerCase().replace(/\s+/g, '-').replace(/[?,¿!¡]/g, '')}`} className="hover:underline">
+                      {title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {!isAISuggesting && suggestedArticles.length === 0 && inquiryValue && inquiryValue.length >=20 && (
+                <p>No hemos encontrado artículos directamente relacionados. Por favor, detalla más tu consulta o envíala y te ayudaremos.</p>
+            )}
+          </AlertDescription>
+        </Alert>
+      )}
+
+      <div>
+        <Button type="submit" className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-all" disabled={isSubmittingForm}>
+          {isSubmittingForm ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            <Send className="mr-2 h-4 w-4" />
+          )}
+          Enviar Mensaje
+        </Button>
+      </div>
+    </form>
+  );
+}
