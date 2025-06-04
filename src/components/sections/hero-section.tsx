@@ -6,7 +6,7 @@ import Link from 'next/link';
 export function HeroSection() {
   return (
     <section className="bg-gradient-to-br from-background via-secondary/20 to-background py-16 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 md:gap-16 items-center">
         <div className="text-center md:text-left md:col-span-2">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-headline text-primary tracking-tight">
             Soluciones Tecnológicas <span className="block sm:inline text-foreground/80">Innovadoras con Pixel Remoto</span>
