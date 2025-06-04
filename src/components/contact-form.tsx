@@ -32,18 +32,31 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     startFormSubmissionTransition(async () => {
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log("Form data submitted:", data);
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          // Usa el mensaje de error de la API si está disponible
+          throw new Error(result.message || 'Error desconocido al enviar el mensaje.');
+        }
+
         toast({
           title: "¡Mensaje Enviado!",
-          description: "Gracias por contactar con Pixel Remoto. Le responderemos lo antes posible.",
+          description: result.message || "Gracias por contactar con Pixel Remoto. Le responderemos lo antes posible.",
         });
         reset();
       } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : "Hubo un problema al enviar su mensaje.";
         toast({
           title: "Error al Enviar",
-          description: "Hubo un problema al enviar su mensaje. Por favor, inténtelo de nuevo.",
+          description: `${errorMessage} Por favor, inténtelo de nuevo más tarde.`,
           variant: "destructive",
         });
       }
