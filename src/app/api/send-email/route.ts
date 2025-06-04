@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
 // Usar la API Key proporcionada directamente
-const resend = new Resend('re_AktxGkMW_AZUG7SNvYRDMLmCJqWLfgJwb');
+const resend = new Resend('re_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5');
 const toEmail = 'ajmanza98@gmail.com';
 // Para pruebas iniciales, Resend permite usar 'onboarding@resend.dev' como remitente.
 // Para producción, deberías verificar tu dominio en Resend y usar una dirección de tu dominio.
@@ -88,3 +88,4 @@ export async function POST(req: NextRequest) {
     });
   }
 }
+
