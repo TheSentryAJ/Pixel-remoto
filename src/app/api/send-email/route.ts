@@ -1,6 +1,7 @@
-
 import type { NextRequest } from 'next/server';
 import { Resend } from 'resend';
+
+export const runtime = 'edge';
 
 // Usar la API Key proporcionada directamente
 const resend = new Resend('re_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5');
@@ -47,7 +48,8 @@ export async function POST(req: NextRequest) {
             </ul>
             <div class="inquiry">
               <strong>Consulta:</strong>
-              <p>${inquiry.replace(/\n/g, '<br>')}</p>
+              <p>${inquiry.replace(/
+/g, '<br>')}</p>
             </div>
           </div>
         </body>
