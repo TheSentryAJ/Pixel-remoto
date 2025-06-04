@@ -1,3 +1,4 @@
+
 import type { NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
@@ -48,8 +49,7 @@ export async function POST(req: NextRequest) {
             </ul>
             <div class="inquiry">
               <strong>Consulta:</strong>
-              <p>${inquiry.replace(/
-/g, '<br>')}</p>
+              <p>${inquiry.replace(/\n/g, '<br>')}</p>
             </div>
           </div>
         </body>
@@ -90,4 +90,3 @@ export async function POST(req: NextRequest) {
     });
   }
 }
-
