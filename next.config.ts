@@ -25,6 +25,12 @@ const nextConfig = (phase: string, { defaultConfig }: { defaultConfig: NextConfi
           hostname: 'i.imgur.com',
           port: '',
           pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'imgur.com', // Added imgur.com for album URLs
+          port: '',
+          pathname: '/**',
         }
       ],
     },
