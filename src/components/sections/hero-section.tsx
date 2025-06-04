@@ -25,14 +25,14 @@ export function HeroSection() {
         </div>
         <div className="relative h-72 md:h-auto md:min-h-[450px] rounded-xl overflow-hidden shadow-2xl group">
           <Image
-            src="https://placehold.co/600x450.png" 
+            src="https://i.imgur.com/pyOMB4m.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
-            className="object-contain transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="IT technology"
             priority
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
         </div>
       </div>
     </section>
