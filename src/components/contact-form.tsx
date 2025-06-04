@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition } from 'react';
@@ -36,7 +37,7 @@ export function ContactForm() {
         console.log("Form data submitted:", data);
         toast({
           title: "¡Mensaje Enviado!",
-          description: "Gracias por contactar con Alhaurín Tech Solutions. Le responderemos lo antes posible.",
+          description: "Gracias por contactar con Pixel Remoto. Le responderemos lo antes posible.",
         });
         reset();
       } catch (error) {

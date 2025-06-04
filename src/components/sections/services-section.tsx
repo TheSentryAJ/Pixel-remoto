@@ -1,3 +1,4 @@
+
 import { services, type Service } from '@/data/services';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Container } from '@/components/ui/container';
@@ -31,7 +32,7 @@ export function ServicesSection() {
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Nuestros Servicios</h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          En Alhaurín Tech Solutions ofrecemos una amplia gama de servicios informáticos para cubrir todas sus necesidades tecnológicas.
+          En Pixel Remoto ofrecemos una amplia gama de servicios informáticos para cubrir todas sus necesidades tecnológicas.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

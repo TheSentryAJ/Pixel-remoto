@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -8,10 +9,10 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
         <div className="text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-headline text-primary tracking-tight">
-            Soluciones Tecnológicas <span className="block sm:inline text-foreground/80">para Alhaurín y Málaga</span>
+            Soluciones Tecnológicas <span className="block sm:inline text-foreground/80">Innovadoras con Pixel Remoto</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0">
-            Ofrecemos servicios expertos de reparación, configuración y asesoramiento informático para particulares y empresas en Alhaurín el Grande y toda la provincia de Málaga.
+            En Pixel Remoto, ofrecemos servicios expertos de reparación, configuración y asesoramiento informático para particulares y empresas, estés donde estés.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-shadow">
@@ -24,11 +25,11 @@ export function HeroSection() {
         </div>
         <div className="relative h-72 md:h-auto md:min-h-[450px] rounded-xl overflow-hidden shadow-2xl group">
           <Image
-            src="https://placehold.co/600x450.png"
-            alt="Técnico informático trabajando con un portátil en un entorno profesional"
+            src="https://i.imgur.com/80nL5mR.png"
+            alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
             className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-            data-ai-hint="IT technology"
+            data-ai-hint="remote work technology"
             priority
           />
            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>

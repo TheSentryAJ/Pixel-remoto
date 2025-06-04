@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -8,8 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Alhaurín Tech Solutions - Expertos en Informática',
-  description: 'Servicios informáticos profesionales para empresas y particulares en Alhaurín el Grande y la provincia de Málaga.',
+  title: 'Pixel Remoto - Soluciones Tecnológicas Innovadoras',
+  description: 'Pixel Remoto ofrece servicios informáticos profesionales y soluciones tecnológicas para empresas y particulares.',
   icons: {
     icon: '/favicon.ico',
   },

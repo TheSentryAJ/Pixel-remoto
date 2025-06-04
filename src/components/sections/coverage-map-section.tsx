@@ -1,3 +1,4 @@
+
 import { Container } from '@/components/ui/container';
 import { MapPin } from 'lucide-react';
 import Link from 'next/link';
@@ -9,16 +10,16 @@ export function CoverageMapSection() {
         <div className="order-2 md:order-1">
           <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary mb-6 flex items-center gap-3">
             <MapPin className="w-8 h-8" />
-            Área de Cobertura
+            Nuestra Cobertura
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            Ofrecemos nuestros servicios en <strong>Alhaurín el Grande</strong> y nos desplazamos por toda la <strong>provincia de Málaga</strong>.
+            En <strong>Pixel Remoto</strong>, ofrecemos nuestros servicios principalmente de forma remota, llegando a donde nos necesites.
           </p>
           <p className="text-muted-foreground mb-4">
-            Algunas de las localidades donde ofrecemos servicio incluyen: Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola, Marbella, Torremolinos y Málaga capital.
+            Para servicios que requieran presencia física, tenemos disponibilidad en <strong>Alhaurín el Grande</strong> y áreas cercanas de la <strong>provincia de Málaga</strong> (Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola).
           </p>
           <p className="text-muted-foreground">
-            Si tiene dudas sobre si cubrimos su zona, no dude en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarnos</Link>.
+            Si tienes dudas sobre la cobertura en tu zona o necesitas un servicio específico, no dudes en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarnos</Link>.
           </p>
         </div>
         <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2">
@@ -30,7 +31,7 @@ export function CoverageMapSection() {
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Mapa de cobertura interactivo de Alhaurín Tech Solutions"
+            title="Mapa de cobertura de Pixel Remoto"
             className="w-full h-full"
           ></iframe>
         </div>
