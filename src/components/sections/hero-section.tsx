@@ -28,11 +28,11 @@ export function HeroSection() {
             src="https://placehold.co/600x450.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
-            className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="object-contain transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="IT technology"
             priority
           />
-           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none"></div>
         </div>
       </div>
     </section>
