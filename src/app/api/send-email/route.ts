@@ -1,15 +1,10 @@
 
 import type { NextRequest } from 'next/server';
-import { Resend } from 'resend';
 
-// Remove edge runtime - Resend needs Node.js runtime
-// export const runtime = 'edge';
+export const runtime = 'edge';
 
-// Usar la API Key proporcionada directamente
-const resend = new Resend('re_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5');
+const RESEND_API_KEY = 're_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5';
 const toEmail = 'ajmanza98@gmail.com';
-// Para pruebas iniciales, Resend permite usar 'onboarding@resend.dev' como remitente.
-// Para producción, deberías verificar tu dominio en Resend y usar una dirección de tu dominio.
 const fromEmail = 'Pixel Remoto <onboarding@resend.dev>';
 
 export async function POST(req: NextRequest) {
@@ -26,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     const emailSubject = `Nueva consulta de ${name} - Pixel Remoto`;
     
-    // Fix the regex by using a proper replace method
+    // Format the inquiry text
     const formattedInquiry = inquiry.replace(/\n/g, '<br>');
     
     const emailHtmlBody = `
@@ -60,24 +55,40 @@ export async function POST(req: NextRequest) {
       </html>
     `;
 
-    const { data, error } = await resend.emails.send({
-      from: fromEmail,
-      to: [toEmail], // Resend espera un array de strings para 'to'
-      subject: emailSubject,
-      html: emailHtmlBody,
-      reply_to: email, // Para que al responder, se responda al cliente
+    // Use fetch to call Resend API directly (Edge Runtime compatible)
+    const emailResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [toEmail],
+        subject: emailSubject,
+        html: emailHtmlBody,
+        reply_to: email,
+      }),
     });
 
-    if (error) {
-      console.error('Error al enviar correo con Resend:', error);
-      return new Response(JSON.stringify({ message: 'Error al enviar el mensaje.', error: error.message }), {
+    if (!emailResponse.ok) {
+      const errorData = await emailResponse.json();
+      console.error('Error al enviar correo con Resend:', errorData);
+      return new Response(JSON.stringify({ 
+        message: 'Error al enviar el mensaje.', 
+        error: errorData.message || 'Error desconocido' 
+      }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
+    const data = await emailResponse.json();
     console.log('Correo enviado con éxito:', data);
-    return new Response(JSON.stringify({ message: 'Mensaje enviado con éxito. Nos pondremos en contacto pronto.' }), {
+    
+    return new Response(JSON.stringify({ 
+      message: 'Mensaje enviado con éxito. Nos pondremos en contacto pronto.' 
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -88,7 +99,10 @@ export async function POST(req: NextRequest) {
     if (error instanceof Error) {
       errorMessage = error.message;
     }
-    return new Response(JSON.stringify({ message: 'Error al procesar la solicitud.', error: errorMessage }), {
+    return new Response(JSON.stringify({ 
+      message: 'Error al procesar la solicitud.', 
+      error: errorMessage 
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
