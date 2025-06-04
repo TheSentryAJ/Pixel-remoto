@@ -2,7 +2,8 @@
 import type { NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Usar la API Key proporcionada directamente
+const resend = new Resend('re_AktxGkMW_AZUG7SNvYRDMLmCJqWLfgJwb');
 const toEmail = 'ajmanza98@gmail.com';
 // Para pruebas iniciales, Resend permite usar 'onboarding@resend.dev' como remitente.
 // Para producción, deberías verificar tu dominio en Resend y usar una dirección de tu dominio.
@@ -10,14 +11,6 @@ const fromEmail = 'Pixel Remoto <onboarding@resend.dev>';
 
 
 export async function POST(req: NextRequest) {
-  if (!process.env.RESEND_API_KEY) {
-    console.error('Error: La variable de entorno RESEND_API_KEY no está configurada.');
-    return new Response(JSON.stringify({ message: 'Error de configuración del servidor para enviar correos.' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
   try {
     const body = await req.json();
     const { name, email, phone, inquiry } = body;
