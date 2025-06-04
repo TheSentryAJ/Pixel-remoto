@@ -28,7 +28,7 @@ export function HeroSection() {
             src="https://i.imgur.com/pyOMB4m.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
-            className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="object-cover object-right-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="IT technology"
             priority
           />
