@@ -23,7 +23,7 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="relative h-72 md:h-auto md:min-h-[450px] rounded-xl overflow-hidden shadow-2xl group">
+        <div className="relative h-80 md:h-auto md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl group">
           <Image
             src="https://i.imgur.com/pyOMB4m.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
