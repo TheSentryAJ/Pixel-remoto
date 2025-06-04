@@ -6,8 +6,8 @@ import Link from 'next/link';
 export function HeroSection() {
   return (
     <section className="bg-gradient-to-br from-background via-secondary/20 to-background py-16 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-        <div className="text-center md:text-left">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 items-center">
+        <div className="text-center md:text-left md:col-span-2">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-headline text-primary tracking-tight">
             Soluciones Tecnológicas <span className="block sm:inline text-foreground/80">Innovadoras con Pixel Remoto</span>
           </h1>
@@ -23,12 +23,12 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="relative h-80 md:h-auto md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl group">
+        <div className="relative h-80 md:h-auto md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl group md:col-span-3">
           <Image
             src="https://i.imgur.com/pyOMB4m.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
-            className="object-cover object-right-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="IT technology"
             priority
           />
