@@ -25,7 +25,7 @@ export function HeroSection() {
         </div>
         <div className="relative h-72 md:h-auto md:min-h-[450px] rounded-xl overflow-hidden shadow-2xl group">
           <Image
-            src="https://i.imgur.com/80nL5mR.png" 
+            src="https://placehold.co/600x450.png" 
             alt="Persona trabajando en un portátil en un entorno moderno - Pixel Remoto"
             fill={true}
             className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
