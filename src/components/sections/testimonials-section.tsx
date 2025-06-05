@@ -7,14 +7,19 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Container } from '@/components/ui/container';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Quote } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { cn } from '@/lib/utils';
+
+const TESTIMONIALS_PER_PAGE = 3;
+const CHANGE_INTERVAL = 7000; // 7 segundos para la visualización estática
+const FADE_DURATION = 500;   // 0.5 segundos para la animación de fundido
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { quote, name, location, avatar } = testimonial;
   const initials = name.split(' ').map(n => n[0]).join('');
 
   return (
-    <Card className="flex flex-col h-full shadow-lg rounded-xl overflow-hidden border bg-card flex-shrink-0 w-[calc(100%/1.1)] sm:w-[calc(100%/2.1)] md:w-[calc(100%/3.1)] mx-2">
+    <Card className="flex flex-col h-full shadow-lg rounded-xl overflow-hidden border bg-card">
       <CardHeader className="p-6 pb-0">
         <Quote className="w-8 h-8 text-primary/50 mb-2" />
       </CardHeader>
@@ -36,28 +41,37 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 }
 
 export function TestimonialsSection() {
-  const [duplicatedTestimonials, setDuplicatedTestimonials] = useState<Testimonial[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  const totalPages = Math.ceil(allTestimonials.length / TESTIMONIALS_PER_PAGE);
+
+  const visibleTestimonials = allTestimonials.slice(
+    currentPage * TESTIMONIALS_PER_PAGE,
+    (currentPage + 1) * TESTIMONIALS_PER_PAGE
+  );
+
+  const changePage = useCallback(() => {
+    if (totalPages <= 1) return; // No ciclar si solo hay una página
+
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
+      setIsFading(false);
+    }, FADE_DURATION);
+  }, [totalPages]);
 
   useEffect(() => {
-    // Duplicate testimonials for seamless scrolling effect
-    // Ensure there are enough items if allTestimonials is short
-    if (allTestimonials.length > 0) {
-        let extendedTestimonials = [...allTestimonials];
-        // To ensure smooth looping, especially if few items, duplicate until a reasonable number
-        while (extendedTestimonials.length < 12 && allTestimonials.length > 0) { // Ensure at least 12 items for good visual scroll or more if few originals
-            extendedTestimonials = [...extendedTestimonials, ...allTestimonials];
-        }
-        setDuplicatedTestimonials(extendedTestimonials);
+    if (allTestimonials.length <= TESTIMONIALS_PER_PAGE) {
+      return; 
     }
-  }, []);
+    const timer = setInterval(changePage, CHANGE_INTERVAL + FADE_DURATION); // Intervalo + duración del fade para tiempo total
+    return () => clearInterval(timer);
+  }, [changePage, allTestimonials.length]);
 
   if (allTestimonials.length === 0) {
-    return null; // Don't render section if no testimonials
+    return null; 
   }
-
-  // Calculate animation duration based on number of unique testimonials
-  // e.g., 5 seconds per testimonial
-  const animationDuration = Math.max(allTestimonials.length * 7, 30); // Minimum 30s
 
   return (
     <Container as="section" id="testimonios" className="bg-background">
@@ -67,15 +81,15 @@ export function TestimonialsSection() {
           La confianza y satisfacción de quienes han recibido mi asistencia es mi mejor carta de presentación.
         </p>
       </div>
-      <div className="relative w-full overflow-hidden">
-        <div 
-          className="flex whitespace-nowrap"
-          style={{ 
-            animation: `scroll-testimonials ${animationDuration}s linear infinite`
-          }}
+      <div className="relative overflow-hidden min-h-[300px]"> {/* min-h para evitar colapso durante el fade */}
+        <div
+          className={cn(
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity ease-in-out",
+            isFading ? "opacity-0 duration-500" : "opacity-100 duration-500 delay-100" // delay-100 para asegurar que el contenido cambie antes de ser visible
+          )}
         >
-          {duplicatedTestimonials.map((testimonial, index) => (
-            <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+          {visibleTestimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
       </div>
