@@ -1,0 +1,25 @@
+
+# robots.txt for pixel-remoto.pages.dev
+
+User-agent: *
+Allow: /
+Disallow: /api/ # Disallow API routes if not meant for public indexing
+
+# Disallow specific paths if needed, e.g.
+# Disallow: /private/
+# Disallow: /admin/
+
+# Path to sitemap (ensure sitemap.xml exists in /public)
+Sitemap: https://pixel-remoto.pages.dev/sitemap.xml
+
+# Specific instructions for Googlebot (optional, inherits from *)
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+# Specific instructions for Bingbot (optional, inherits from *)
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# Add other bot specific rules if necessary

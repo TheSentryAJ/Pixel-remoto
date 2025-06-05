@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import NextImage from 'next/image'; // Renombrado para claridad
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -16,21 +16,22 @@ export function HeroSection() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-shadow">
-              <Link href="#areas-de-soporte">Ver Áreas de Soporte</Link>
+              <Link href="/soluciones#areas-de-soporte">Ver Áreas de Soporte</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 shadow-sm hover:shadow-md transition-shadow">
-              <Link href="#blog">Lee mi Blog</Link>
+              <Link href="/blog">Lee mi Blog</Link>
             </Button>
           </div>
         </div>
         <div className="relative h-80 md:h-auto md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl group md:col-span-3">
-          <Image
+          <NextImage
             src="https://i.imgur.com/pyOMB4m.png" 
             alt="Escritorio de trabajo tecnológico personal con enfoque en soporte"
             fill={true}
             className="object-cover object-right-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="computer support workspace"
-            priority
+            priority // Esta imagen es "above the fold", priority ayuda a cargarla antes
+            quality={80} // Ajusta la calidad si es necesario
           />
            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none"></div>
         </div>

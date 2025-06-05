@@ -3,9 +3,34 @@ import type { Metadata } from 'next';
 import { SupportAreasSection } from '@/components/sections/support-areas-section';
 import { Container } from '@/components/ui/container';
 
+const siteUrl = 'https://pixel-remoto.pages.dev'; // Reemplaza con tu URL de producción
+
 export const metadata: Metadata = {
   title: 'Soluciones de Soporte Técnico | Pixel Remoto',
   description: 'Descubre cómo puedo ayudarte. Ofrezco asistencia en optimización de PC, eliminación de virus, configuración de equipos y solución de problemas de software.',
+  alternates: {
+    canonical: '/soluciones',
+  },
+  openGraph: {
+    title: 'Soluciones de Soporte Técnico | Pixel Remoto',
+    description: 'Descubre cómo puedo ayudarte. Ofrezco asistencia en optimización de PC, eliminación de virus, configuración de equipos y solución de problemas de software.',
+    url: `${siteUrl}/soluciones`,
+    type: 'website',
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`, 
+        width: 1200,
+        height: 630,
+        alt: 'Soluciones de Soporte Técnico Pixel Remoto',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Soluciones de Soporte Técnico | Pixel Remoto',
+    description: 'Descubre cómo puedo ayudarte. Ofrezco asistencia en optimización de PC, eliminación de virus, configuración de equipos y solución de problemas de software.',
+    images: [`${siteUrl}/twitter-card.png`],
+  },
 };
 
 export default function SolucionesPage() {
@@ -18,7 +43,6 @@ export default function SolucionesPage() {
         </p>
       </Container>
       <SupportAreasSection /> 
-      {/* Puedes añadir más contenido específico para esta página si es necesario */}
     </>
   );
 }

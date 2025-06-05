@@ -1,14 +1,46 @@
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import NextImage from 'next/image'; // Renombrado para evitar conflicto con el componente Image de más abajo si lo hubiera
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Code, Settings, Brain } from 'lucide-react';
 
+const siteUrl = 'https://pixel-remoto.pages.dev'; // Reemplaza con tu URL de producción
+const profileImageUrl = "https://placehold.co/400x500.png"; // O la URL de tu imagen real
+
 export const metadata: Metadata = {
   title: 'Sobre Mí | Antonio J. - Técnico Informático',
   description: 'Conoce a Antonio J., el técnico detrás de Pixel Remoto. Apasionado por la tecnología con un enfoque resolutivo y proactivo para cada desafío técnico.',
+  alternates: {
+    canonical: '/sobre-mi',
+  },
+  openGraph: {
+    title: 'Sobre Mí | Antonio J. - Técnico Informático',
+    description: 'Conoce a Antonio J., el técnico detrás de Pixel Remoto. Apasionado por la tecnología con un enfoque resolutivo y proactivo para cada desafío técnico.',
+    url: `${siteUrl}/sobre-mi`,
+    type: 'profile',
+    profile: {
+      firstName: 'Antonio',
+      lastName: 'J.', // Asumiendo que J es el apellido o inicial
+      username: 'AntonioJPixelRemoto', // Un nombre de usuario hipotético
+      gender: 'male', // o 'female', 'non-binary', etc.
+    },
+    images: [
+      {
+        url: profileImageUrl, // Usa la misma imagen que en la página o una específica para OG
+        width: 400, // Ajusta al tamaño de tu imagen
+        height: 500, // Ajusta al tamaño de tu imagen
+        alt: 'Antonio J. - Técnico Informático',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Mí | Antonio J. - Técnico Informático',
+    description: 'Conoce a Antonio J., el técnico detrás de Pixel Remoto. Apasionado por la tecnología con un enfoque resolutivo y proactivo para cada desafío técnico.',
+    images: [profileImageUrl], // Usa la misma imagen que en la página o una específica para Twitter
+  },
 };
 
 export default function SobreMiPage() {
@@ -16,14 +48,15 @@ export default function SobreMiPage() {
     <Container as="section" className="py-12 md:py-16 lg:py-20">
       <div className="grid md:grid-cols-3 gap-12 items-center">
         <div className="md:col-span-1">
-          <div className="relative w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background">
-            <Image
-              src="https://placehold.co/400x500.png" // Placeholder, reemplazar con una foto tuya
+          <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-background">
+            <NextImage
+              src={profileImageUrl}
               alt="Antonio J. - Técnico Informático"
               layout="fill"
               objectFit="cover"
               className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
               data-ai-hint="professional portrait tech"
+              loading="lazy" 
             />
           </div>
         </div>

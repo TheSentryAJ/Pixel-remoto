@@ -1,0 +1,41 @@
+
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Content Security Policy (CSP) - Basic example, needs careful tuning for Next.js
+# This is a restrictive example. Next.js might need 'unsafe-eval' for development or certain features,
+# and 'unsafe-inline' for styles/scripts depending on setup.
+# Test thoroughly and adjust as needed for your specific application.
+# For Next.js inline scripts (hydration, next/script strategy='beforeInteractive'): 'nonce-...' or 'sha256-...' is preferred over 'unsafe-inline'.
+# Next.js uses inline styles for font optimization, which might require 'unsafe-inline' for style-src or specific hashes.
+
+Content-Security-Policy: \
+  default-src 'self'; \
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://maps.google.com https://www.gstatic.com https://www.google.com; \
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://maps.google.com https://www.gstatic.com https://www.google.com; \
+  img-src 'self' data: https://placehold.co https://i.imgur.com https://maps.gstatic.com https://maps.googleapis.com *.ggpht.com; \
+  font-src 'self' https://fonts.gstatic.com; \
+  frame-src 'self' https://maps.google.com https://www.google.com; \
+  connect-src 'self' https://api.resend.com https://vitals.vercel-insights.com https://maps.googleapis.com; \
+  object-src 'none'; \
+  base-uri 'self'; \
+  form-action 'self'; \
+  frame-ancestors 'none'; \
+  upgrade-insecure-requests;
+
+# Cache control for static assets (handled by Next.js itself, but can be reinforced here)
+/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.ico
+  Cache-Control: public, max-age=86400
+/manifest.json
+  Cache-Control: public, max-age=3600
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

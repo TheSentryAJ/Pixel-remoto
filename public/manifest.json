@@ -1,0 +1,31 @@
+
+{
+  "name": "Pixel Remoto - Soporte Técnico por Antonio J.",
+  "short_name": "Pixel Remoto",
+  "description": "Soporte informático y soluciones tecnológicas por Antonio J. Asistencia para PC, seguridad, configuración y más.",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#F5F5F5",
+  "theme_color": "#4285F4",
+  "scope": "/",
+  "lang": "es-ES",
+  "orientation": "portrait-primary"
+}
