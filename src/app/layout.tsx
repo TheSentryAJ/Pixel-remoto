@@ -9,15 +9,14 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Pixel Remoto - Soluciones Tecnológicas Innovadoras',
-  description: 'Pixel Remoto ofrece servicios informáticos profesionales y soluciones tecnológicas para empresas y particulares.',
+  title: 'Antonio J. - Explorando Soluciones IT',
+  description: 'Portafolio y blog técnico de Antonio J. Comparto proyectos, guías y reflexiones sobre tecnología y soporte técnico.',
   icons: {
     icon: '/favicon.ico',
   },
-  // verification object can also be used for Google, but a direct meta tag is also fine
-  // verification: {
-  //   google: 'google7a63ca12341af4b3',
-  // },
+  verification: {
+    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
+  },
 };
 
 export default function RootLayout({
@@ -28,10 +27,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
       <head>
-        <meta name="google-site-verification" content="tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM" />
+        {/* Removed the direct meta tag for google-site-verification as it's handled by Metadata API */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Removed the direct Inter link to prefer next/font */}
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
         <Header />

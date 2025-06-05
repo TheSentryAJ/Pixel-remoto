@@ -2,13 +2,13 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Mountain } from 'lucide-react'; // Consider changing Mountain to a more generic tech icon if desired
+import { Menu, X, Mountain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
-  { href: '#servicios', label: 'Servicios' },
-  { href: '#cobertura', label: 'Cobertura' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#blog', label: 'Blog' },
   { href: '#testimonios', label: 'Testimonios' },
   { href: '#contacto', label: 'Contacto' },
 ];
@@ -21,8 +21,8 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
-            <Mountain className="h-8 w-8" /> {/* You might want to choose a different icon for Pixel Remoto */}
-            <span className="font-headline">Pixel Remoto</span>
+            <Mountain className="h-8 w-8" />
+            <span className="font-headline">Pixel Remoto</span> {/* Considerar cambiar a "Antonio J." si el usuario lo desea */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +51,7 @@ export function Header() {
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between p-4 border-b">
                      <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary" onClick={() => setMobileMenuOpen(false)}>
-                        <Mountain className="h-7 w-7" /> {/* You might want to choose a different icon for Pixel Remoto */}
+                        <Mountain className="h-7 w-7" />
                         <span className="font-headline">Pixel Remoto</span>
                       </Link>
                     <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>

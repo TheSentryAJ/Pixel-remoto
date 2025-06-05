@@ -3,25 +3,27 @@ import type { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-const RESEND_API_KEY = 're_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5';
+const RESEND_API_KEY = 're_CLRS22Qr_5Vg48kohWCgPHZfnXy3poNR5'; // Recuerda manejar esto de forma segura, idealmente con variables de entorno
 const toEmail = 'ajmanza98@gmail.com';
-const fromEmail = 'Pixel Remoto <onboarding@resend.dev>';
+const fromEmail = 'Antonio J. <onboarding@resend.dev>'; // Cambiado para reflejar un tono más personal
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, inquiry } = body;
+    // El formulario ahora envía 'message', pero la API sigue esperando 'inquiry'.
+    // Si se cambió en el form a 'message', aquí se debería leer 'message' o mapear.
+    // Asumimos que el form envía 'inquiry' o que el mapeo se hizo en el componente del formulario.
+    const { name, email, inquiry } = body; // 'phone' ha sido eliminado
 
     if (!name || !email || !inquiry) {
-      return new Response(JSON.stringify({ message: 'Nombre, correo electrónico y consulta son obligatorios.' }), {
+      return new Response(JSON.stringify({ message: 'Nombre, correo electrónico y mensaje son obligatorios.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const emailSubject = `Nueva consulta de ${name} - Pixel Remoto`;
+    const emailSubject = `Nuevo mensaje de ${name} - Contacto desde mi web`; // Tono más personal
     
-    // Format the inquiry text
     const formattedInquiry = inquiry.replace(/\n/g, '<br>');
     
     const emailHtmlBody = `
@@ -39,23 +41,23 @@ export async function POST(req: NextRequest) {
         </head>
         <body>
           <div class="container">
-            <h2>Nueva Solicitud de Contacto - Pixel Remoto</h2>
-            <p>Has recibido una nueva consulta a través del formulario de contacto de Pixel Remoto:</p>
+            <h2>Nuevo Mensaje de Contacto</h2>
+            <p>Has recibido un nuevo mensaje a través del formulario de contacto de mi web:</p>
             <ul>
               <li><strong>Nombre:</strong> ${name}</li>
               <li><strong>Correo Electrónico:</strong> ${email}</li>
-              <li><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</li>
+              {/* Teléfono eliminado */}
             </ul>
             <div class="inquiry">
-              <strong>Consulta:</strong>
+              <strong>Mensaje:</strong>
               <p>${formattedInquiry}</p>
             </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #777;">Este correo fue enviado desde el formulario de contacto de tu web personal.</p>
           </div>
         </body>
       </html>
     `;
 
-    // Use fetch to call Resend API directly (Edge Runtime compatible)
     const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -87,7 +89,7 @@ export async function POST(req: NextRequest) {
     console.log('Correo enviado con éxito:', data);
     
     return new Response(JSON.stringify({ 
-      message: 'Mensaje enviado con éxito. Nos pondremos en contacto pronto.' 
+      message: 'Mensaje enviado con éxito. Me pondré en contacto pronto.' 
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },

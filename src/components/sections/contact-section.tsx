@@ -1,15 +1,15 @@
 
 import { ContactForm } from '@/components/contact-form';
 import { Container } from '@/components/ui/container';
-import { Mail, Phone, MapPinIcon } from 'lucide-react';
+import { Mail, Linkedin, MessageSquare } from 'lucide-react'; // Replaced Phone with Linkedin or similar
 
 export function ContactSection() {
   return (
     <Container as="section" id="contacto" className="bg-background">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">Contacte con Nosotros</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold font-headline text-primary">¿Hablamos?</h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          ¿Tiene alguna pregunta o necesita ayuda con su tecnología? Rellene el formulario o contáctenos directamente. En Pixel Remoto estamos para ayudarle.
+          Si tienes alguna pregunta, sugerencia o simplemente quieres charlar sobre tecnología, no dudes en escribirme.
         </p>
       </div>
 
@@ -21,30 +21,27 @@ export function ContactSection() {
           <div>
             <h3 className="text-xl font-semibold font-headline text-primary mb-3 flex items-center gap-2">
               <Mail className="w-6 h-6 text-accent" />
-              Escríbanos
+              Escríbeme
             </h3>
             <a href="mailto:info@pixelremoto.com" className="text-muted-foreground hover:text-accent transition-colors block">info@pixelremoto.com</a>
+            <p className="text-sm text-muted-foreground mt-1">Siempre estoy abierto a nuevas ideas y colaboraciones.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold font-headline text-primary mb-3 flex items-center gap-2">
-              <Phone className="w-6 h-6 text-accent" />
-              Llámenos
+              <Linkedin className="w-6 h-6 text-accent" /> {/* Placeholder for LinkedIn */}
+              Conecta Conmigo
             </h3>
-            <a href="tel:+34684358645" className="text-muted-foreground hover:text-accent transition-colors block">+34 684 358 645 <span className="text-xs">(Teléfono de contacto)</span></a>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold font-headline text-primary mb-3">Nuestro Horario de Atención</h3>
-            <p className="text-muted-foreground">Lunes - Viernes: 9:00 - 18:00</p>
-            <p className="text-muted-foreground">Sábados: 10:00 - 14:00 (Servicio Remoto)</p>
-            <p className="text-muted-foreground">Domingos: Cerrado</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors block">
+              Visita mi perfil de LinkedIn (Próximamente)
+            </a>
+             <p className="text-sm text-muted-foreground mt-1">Puedes encontrar más sobre mi trayectoria profesional.</p>
           </div>
            <div>
             <h3 className="text-xl font-semibold font-headline text-primary mb-3 flex items-center gap-2">
-              <MapPinIcon className="w-6 h-6 text-accent" />
-              Nuestra Cobertura
+              <MessageSquare className="w-6 h-6 text-accent" />
+              Sobre este Espacio
             </h3>
-            <p className="text-muted-foreground">Ofrecemos servicios principalmente remotos.</p>
-            <p className="text-sm text-muted-foreground">(Consulte para servicios presenciales en áreas específicas)</p>
+            <p className="text-muted-foreground">Este es mi rincón digital personal donde comparto mi pasión por la tecnología, proyectos en los que he trabajado y artículos que espero encuentres útiles.</p>
           </div>
         </div>
       </div>
