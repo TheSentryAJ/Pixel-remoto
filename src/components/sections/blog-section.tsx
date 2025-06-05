@@ -12,7 +12,7 @@ function ArticleCard({ article }: { article: Article }) {
     <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
       <CardHeader className="pt-6 pb-2">
         <CardTitle className="font-headline text-xl text-primary hover:underline">
-          <Link href={slug}>{title}</Link>
+          <Link href={`/blog/${slug}`}>{title}</Link>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow p-6 pt-0">
@@ -24,7 +24,7 @@ function ArticleCard({ article }: { article: Article }) {
           <span>{date}</span>
         </div>
         <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" asChild>
-          <Link href={slug}>Leer Más</Link>
+          <Link href={`/blog/${slug}`}>Leer Más</Link>
         </Button>
       </CardFooter>
     </Card>
@@ -32,6 +32,8 @@ function ArticleCard({ article }: { article: Article }) {
 }
 
 export function BlogSection() {
+  const displayedArticles = articles.slice(0, 3); // Mostrar solo los 3 primeros en la homepage
+
   return (
     <Container as="section" id="blog" className="bg-secondary/30">
       <div className="text-center mb-12">
@@ -41,13 +43,13 @@ export function BlogSection() {
         </p>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {articles.map((article) => (
+        {displayedArticles.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
        <div className="text-center mt-12">
         <Button variant="ghost" className="text-primary hover:text-primary/80 text-lg" asChild>
-            <Link href="#">Ver todos los artículos (Próximamente)</Link>
+            <Link href="/blog">Ver todos los artículos</Link>
         </Button>
       </div>
     </Container>

@@ -7,9 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
-  { href: '#areas-de-soporte', label: 'Áreas de Soporte' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '/#areas-de-soporte', label: 'Áreas de Soporte' }, // Kept for homepage quick nav if SupportAreasSection is still there
+  { href: '/soluciones', label: 'Soluciones' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/sobre-mi', label: 'Sobre Mí' },
+  { href: '/#contacto', label: 'Contacto' },
 ];
 
 export function Header() {
