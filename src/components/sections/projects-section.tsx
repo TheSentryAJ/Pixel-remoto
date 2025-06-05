@@ -4,25 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { ListChecks, Settings, CheckCircle } from 'lucide-react';
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, challenge, solution, toolsUsed, result, imageUrl, imageHint, slug } = project;
+  const { title, challenge, solution, toolsUsed, result, slug } = project;
   return (
     <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
-      {imageUrl && (
-        <div className="relative h-48 w-full">
-          <Image 
-            src={imageUrl} 
-            alt={`Imagen del proyecto ${title}`} 
-            fill 
-            className="object-cover"
-            data-ai-hint={imageHint}
-          />
-        </div>
-      )}
       <CardHeader className="pt-6 pb-2">
         <CardTitle className="font-headline text-xl text-primary">{title}</CardTitle>
       </CardHeader>

@@ -4,26 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
 import { CalendarDays } from 'lucide-react';
 
 function ArticleCard({ article }: { article: Article }) {
-  const { title, excerpt, date, imageUrl, imageHint, slug } = article;
+  const { title, excerpt, date, slug } = article;
   return (
     <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
-      {imageUrl && (
-        <Link href={slug} aria-label={`Leer más sobre ${title}`} className="block">
-          <div className="relative h-48 w-full">
-            <Image 
-              src={imageUrl} 
-              alt={`Imagen del artículo ${title}`} 
-              fill 
-              className="object-cover"
-              data-ai-hint={imageHint}
-            />
-          </div>
-        </Link>
-      )}
       <CardHeader className="pt-6 pb-2">
         <CardTitle className="font-headline text-xl text-primary hover:underline">
           <Link href={slug}>{title}</Link>
