@@ -1,13 +1,12 @@
 
 import type { Metadata } from 'next';
-import NextImage from 'next/image'; // Renombrado para evitar conflicto con el componente Image de más abajo si lo hubiera
+// import NextImage from 'next/image'; // Ya no es necesario
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Code, Settings, Brain } from 'lucide-react';
 
-const siteUrl = 'https://pixel-remoto.pages.dev'; // Reemplaza con tu URL de producción
-const profileImageUrl = "https://placehold.co/400x500.png"; // O la URL de tu imagen real
+const siteUrl = 'https://pixel-remoto.pages.dev'; 
 
 export const metadata: Metadata = {
   title: 'Sobre Mí | Antonio J. - Técnico Informático',
@@ -22,15 +21,15 @@ export const metadata: Metadata = {
     type: 'profile',
     profile: {
       firstName: 'Antonio',
-      lastName: 'J.', // Asumiendo que J es el apellido o inicial
-      username: 'AntonioJPixelRemoto', // Un nombre de usuario hipotético
-      gender: 'male', // o 'female', 'non-binary', etc.
+      lastName: 'J.', 
+      username: 'AntonioJPixelRemoto', 
+      gender: 'male', 
     },
-    images: [
+    images: [ // Puedes mantener una imagen OG diferente si quieres, o eliminarla si no tienes una específica
       {
-        url: profileImageUrl, // Usa la misma imagen que en la página o una específica para OG
-        width: 400, // Ajusta al tamaño de tu imagen
-        height: 500, // Ajusta al tamaño de tu imagen
+        url: `${siteUrl}/og-image.png`, // Imagen genérica del sitio para OG
+        width: 1200,
+        height: 630,
         alt: 'Antonio J. - Técnico Informático',
       },
     ],
@@ -39,29 +38,16 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sobre Mí | Antonio J. - Técnico Informático',
     description: 'Conoce a Antonio J., el técnico detrás de Pixel Remoto. Apasionado por la tecnología con un enfoque resolutivo y proactivo para cada desafío técnico.',
-    images: [profileImageUrl], // Usa la misma imagen que en la página o una específica para Twitter
+    images: [`${siteUrl}/twitter-card.png`], // Imagen genérica del sitio para Twitter Card
   },
 };
 
 export default function SobreMiPage() {
   return (
     <Container as="section" className="py-12 md:py-16 lg:py-20">
-      <div className="grid md:grid-cols-3 gap-12 items-center">
-        <div className="md:col-span-1">
-          <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-background">
-            <NextImage
-              src={profileImageUrl}
-              alt="Antonio J. - Técnico Informático"
-              layout="fill"
-              objectFit="cover"
-              className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-              data-ai-hint="professional portrait tech"
-              loading="lazy" 
-            />
-          </div>
-        </div>
-        <div className="md:col-span-2">
-          <h1 className="text-3xl sm:text-4xl font-bold font-headline text-primary mb-6">
+      <div className="max-w-3xl mx-auto"> {/* Contenedor para centrar y limitar el ancho del texto */}
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-bold font-headline text-primary mb-6 text-center md:text-left">
             Soy Antonio J.
           </h1>
           <p className="text-lg text-muted-foreground mb-4">
@@ -73,23 +59,34 @@ export default function SobreMiPage() {
           <p className="text-muted-foreground mb-6">
             Este espacio, "Pixel Remoto", nació de mi deseo de compartir mis conocimientos y ofrecer asistencia a quienes se sienten abrumados por la tecnología o simplemente necesitan una mano experta para que sus dispositivos funcionen como deberían. Mi enfoque es siempre proactivo, buscando no solo solucionar el problema inmediato, sino también prevenir futuras incidencias.
           </p>
-          <div className="space-y-3 mb-8">
+          <div className="space-y-4 mb-8 p-6 bg-secondary/30 rounded-xl border">
             <div className="flex items-start gap-3">
-              <Settings className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <p className="text-muted-foreground"><strong className="text-foreground">Enfoque Resolutivo:</strong> Me centro en identificar la raíz del problema para ofrecer soluciones duraderas.</p>
+              <Settings className="w-7 h-7 text-accent flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground">Enfoque Resolutivo</h3>
+                <p className="text-muted-foreground text-sm">Me centro en identificar la raíz del problema para ofrecer soluciones duraderas.</p>
+              </div>
             </div>
             <div className="flex items-start gap-3">
-              <Brain className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <p className="text-muted-foreground"><strong className="text-foreground">Aprendizaje Continuo:</strong> El mundo tecnológico evoluciona constantemente, y yo con él. Siempre estoy investigando y aprendiendo nuevas herramientas y técnicas.</p>
+              <Brain className="w-7 h-7 text-accent flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground">Aprendizaje Continuo</h3>
+                <p className="text-muted-foreground text-sm">El mundo tecnológico evoluciona constantemente, y yo con él. Siempre estoy investigando y aprendiendo nuevas herramientas y técnicas.</p>
+              </div>
             </div>
              <div className="flex items-start gap-3">
-              <Code className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <p className="text-muted-foreground"><strong className="text-foreground">Comunicación Clara:</strong> Creo firmemente en explicar los problemas y las soluciones de manera que cualquiera pueda entender, sin tecnicismos innecesarios.</p>
+              <Code className="w-7 h-7 text-accent flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground">Comunicación Clara</h3>
+                <p className="text-muted-foreground text-sm">Creo firmemente en explicar los problemas y las soluciones de manera que cualquiera pueda entender, sin tecnicismos innecesarios.</p>
+              </div>
             </div>
           </div>
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Link href="/#contacto">Hablemos de tu proyecto o consulta</Link>
-          </Button>
+          <div className="text-center md:text-left">
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="/#contacto">Hablemos de tu proyecto o consulta</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </Container>
