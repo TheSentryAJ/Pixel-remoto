@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  // verification object can also be used for Google, but a direct meta tag is also fine
+  // verification: {
+  //   google: 'google7a63ca12341af4b3',
+  // },
 };
 
 export default function RootLayout({
@@ -24,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
       <head>
+        <meta name="google-site-verification" content="google7a63ca12341af4b3" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Removed the direct Inter link to prefer next/font */}
