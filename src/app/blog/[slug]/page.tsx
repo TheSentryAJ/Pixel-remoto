@@ -4,6 +4,7 @@ import { articles, type Article } from '@/data/articles';
 import { Container } from '@/components/ui/container';
 import { notFound } from 'next/navigation';
 import { CalendarDays } from 'lucide-react';
+import Link from 'next/link'; // Import Link for the back button
 
 type Props = {
   params: { slug: string };
@@ -58,3 +59,4 @@ export default function ArticlePage({ params }: Props) {
     </Container>
   );
 }
+

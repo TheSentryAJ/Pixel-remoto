@@ -4,10 +4,10 @@ export interface Article {
   title: string;
   excerpt: string;
   date: string;
-  imageUrl?: string; // Se mantiene por si se decide usar en el futuro
-  imageHint?: string; // Se mantiene por si se decide usar en el futuro
+  imageUrl?: string; 
+  imageHint?: string; 
   slug: string;
-  content: string; // Contenido completo del artículo
+  content: string; 
 }
 
 export const articles: Article[] = [
@@ -124,4 +124,69 @@ Una buena opción de pago no tiene por qué ser excesivamente cara. Muchas marca
 En última instancia, la mejor elección depende de tus necesidades, tu presupuesto y tu nivel de "riesgo" online. Lo importante es no dejar la seguridad de tu equipo al azar.
     `,
   },
+  {
+    id: 'seguridad-wifi',
+    title: 'Mantén tu WiFi Seguro: Consejos Esenciales para Proteger tu Red Doméstica',
+    excerpt: 'Tu red WiFi es la puerta de entrada a tus dispositivos. Aprende a configurarla de forma segura para evitar intrusos y proteger tu información personal.',
+    date: '16 de Junio, 2024',
+    slug: 'seguridad-wifi',
+    content: `
+En la era de la conectividad, nuestra red WiFi doméstica se ha convertido en el centro neurálgico de nuestros hogares digitales. A través de ella accedemos a internet, conectamos nuestros ordenadores, móviles, tablets, televisores inteligentes e incluso electrodomésticos. Sin embargo, una red WiFi mal protegida es una invitación abierta a intrusos, que podrían desde robar tu ancho de banda hasta acceder a tu información personal o infectar tus dispositivos con malware.
+
+Asegurar tu red WiFi no tiene por qué ser complicado. Aquí te presento algunos consejos esenciales que puedes implementar hoy mismo:
+
+1.  **Cambia la Contraseña por Defecto del Router:** Todos los routers vienen con un nombre de usuario y contraseña de administrador genéricos (como "admin"/"admin" o "admin"/"password"). Estos son públicamente conocidos. Lo primero que debes hacer es acceder a la configuración de tu router y cambiar estas credenciales por unas únicas y fuertes. Consulta el manual de tu router o busca el modelo en internet para saber cómo acceder (normalmente a través de una dirección IP como 192.168.1.1 o 192.168.0.1 en tu navegador).
+
+2.  **Utiliza Cifrado WPA3 (o WPA2-AES como mínimo):** El cifrado protege la información que viaja por tu red. Asegúrate de que tu router esté utilizando el protocolo de seguridad más robusto disponible. WPA3 es el más reciente y seguro. Si tu router no lo soporta, WPA2 con cifrado AES (también conocido como CCMP) es la siguiente mejor opción. Evita los obsoletos WEP y WPA (TKIP), ya que son vulnerables.
+
+3.  **Establece una Contraseña de Red Fuerte y Única:** Esta es la contraseña que usas para conectar tus dispositivos a la WiFi. Debe ser larga (al menos 12-15 caracteres), combinar mayúsculas, minúsculas, números y símbolos. Evita palabras comunes o información personal fácil de adivinar.
+
+4.  **Cambia el Nombre de tu Red (SSID):** Aunque no es una medida de seguridad crítica por sí misma, cambiar el SSID por defecto (que a menudo incluye la marca o modelo del router) puede hacer que tu red sea un objetivo menos obvio para ataques automatizados que buscan routers con vulnerabilidades conocidas por su marca. No uses información personal en el SSID.
+
+5.  **Deshabilita WPS (Wi-Fi Protected Setup) si no lo usas:** WPS fue diseñado para facilitar la conexión de dispositivos, pero algunas implementaciones han demostrado ser vulnerables. Si no necesitas esta función, es más seguro desactivarla en la configuración de tu router.
+
+6.  **Mantén el Firmware del Router Actualizado:** Los fabricantes de routers lanzan actualizaciones de firmware para corregir fallos de seguridad y mejorar el rendimiento. Revisa periódicamente la web del fabricante o la interfaz de configuración de tu router para asegurarte de que tienes la última versión instalada.
+
+7.  **Considera una Red de Invitados:** Si sueles tener visitas que necesitan conectarse a internet, habilita la red de invitados en tu router. Esto crea una red separada para ellos, aislada de tus dispositivos y archivos principales, añadiendo una capa extra de seguridad.
+
+Siguiendo estos consejos, mejorarás significativamente la seguridad de tu red WiFi, protegiendo tus dispositivos y tu información personal de accesos no autorizados y posibles ciberataques.
+    `,
+  },
+  {
+    id: 'portatil-sobrecalentamiento',
+    title: '¿Por Qué mi Portátil se Sobrecalienta? Causas Comunes y Cómo Solucionarlo',
+    excerpt: 'El calor excesivo puede dañar tu portátil. Descubre las causas más frecuentes del sobrecalentamiento y qué puedes hacer para mantenerlo fresco y funcionando óptimamente.',
+    date: '18 de Junio, 2024',
+    slug: 'portatil-sobrecalentamiento',
+    content: `
+Un portátil que se calienta más de lo normal no es solo incómodo al tacto, sino que puede ser una señal de problemas subyacentes que, a la larga, pueden reducir su rendimiento e incluso dañar sus componentes internos. Si notas que tu portátil está demasiado caliente, es importante identificar la causa y tomar medidas.
+
+Estas son algunas de las razones más comunes por las que un portátil puede sobrecalentarse:
+
+1.  **Acumulación de Polvo y Pelusa:** Con el tiempo, el polvo y la pelusa se acumulan en los ventiladores y las rejillas de ventilación de tu portátil. Esto obstruye el flujo de aire, impidiendo que el sistema de refrigeración funcione eficazmente. Es una de las causas más frecuentes y, afortunadamente, de las más fáciles de solucionar.
+
+2.  **Rejillas de Ventilación Bloqueadas:** Usar el portátil sobre superficies blandas como camas, sofás o cojines puede bloquear las rejillas de ventilación inferiores, impidiendo la correcta disipación del calor. Es fundamental usar el portátil sobre superficies planas y duras.
+
+3.  **Pasta Térmica Vieja o Mal Aplicada:** La pasta térmica es un compuesto que se aplica entre el procesador (CPU) y la tarjeta gráfica (GPU) y sus respectivos disipadores para facilitar la transferencia de calor. Con el tiempo, esta pasta puede secarse y perder efectividad, o puede haber sido mal aplicada de fábrica.
+
+4.  **Ventiladores Defectuosos:** Si el ventilador de tu portátil no funciona correctamente (hace ruidos extraños, no gira o gira muy lento), no podrá expulsar el aire caliente de manera eficiente.
+
+5.  **Software Exigente o Procesos en Segundo Plano:** Ejecutar aplicaciones muy demandantes (juegos, edición de vídeo, software de modelado 3D) durante periodos prolongados genera mucho calor. Del mismo modo, tener muchos procesos innecesarios ejecutándose en segundo plano puede sobrecargar el procesador.
+
+6.  **Malware:** Algunos tipos de malware pueden hacer que tu procesador trabaje a pleno rendimiento de forma constante, generando un calor excesivo.
+
+**¿Cómo Solucionar el Sobrecalentamiento?**
+
+*   **Limpieza Interna:** Si te sientes cómodo, puedes abrir tu portátil (con cuidado y siguiendo guías específicas para tu modelo) y limpiar los ventiladores y disipadores con aire comprimido. Si no, un técnico puede hacerlo por ti.
+*   **Usa una Base Refrigeradora:** Estas bases con ventiladores adicionales pueden ayudar a mejorar el flujo de aire por debajo del portátil.
+*   **Asegura una Buena Ventilación:** Utiliza siempre tu portátil sobre superficies duras y planas. Evita obstruir las rejillas de ventilación.
+*   **Revisar la Pasta Térmica:** Si sospechas que este es el problema, lo mejor es que un técnico cualificado la reemplace.
+*   **Gestiona los Programas de Inicio y Cierra Aplicaciones Innecesarias:** Revisa qué programas se inician con Windows/macOS y desactiva los que no necesites. Cierra las aplicaciones que no estés utilizando.
+*   **Realiza un Análisis de Malware:** Utiliza tu antivirus para escanear tu sistema en busca de software malicioso.
+*   **Actualiza Controladores:** Asegúrate de tener los últimos controladores (drivers) para tus componentes, especialmente la tarjeta gráfica.
+
+Si después de tomar estas medidas tu portátil sigue sobrecalentándose, te recomiendo que busques asistencia técnica profesional para un diagnóstico más exhaustivo. Mantener tu portátil fresco no solo mejora su rendimiento, sino que también prolonga su vida útil.
+    `,
+  },
 ];
+

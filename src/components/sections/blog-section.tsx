@@ -32,7 +32,7 @@ function ArticleCard({ article }: { article: Article }) {
 }
 
 export function BlogSection() {
-  const displayedArticles = articles.slice(0, 3); // Mostrar solo los 3 primeros en la homepage
+  const displayedArticles = articles.slice(0, 3); 
 
   return (
     <Container as="section" id="blog" className="bg-secondary/30">
@@ -55,3 +55,4 @@ export function BlogSection() {
     </Container>
   );
 }
+
