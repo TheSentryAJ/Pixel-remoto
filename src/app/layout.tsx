@@ -9,8 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Antonio J. - Explorando Soluciones IT',
-  description: 'Portafolio y blog técnico de Antonio J. Comparto proyectos, guías y reflexiones sobre tecnología y soporte técnico.',
+  title: 'Antonio J. - Soporte Técnico y Soluciones IT',
+  description: 'Asistencia informática y soluciones tecnológicas por Antonio J. Obtén ayuda con problemas de PC, seguridad, configuración de equipos y más.',
   icons: {
     icon: '/favicon.ico',
   },
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
       <head>
-        {/* Removed the direct meta tag for google-site-verification as it's handled by Metadata API */}
+        {/* <meta name="google-site-verification" content="tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM" /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

@@ -31,7 +31,6 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     startFormSubmissionTransition(async () => {
       try {
-        // Renaming 'message' to 'inquiry' for the API endpoint as it expects 'inquiry'
         const apiData = { ...data, inquiry: data.message }; 
         
         const response = await fetch('/api/send-email', {
@@ -45,16 +44,16 @@ export function ContactForm() {
         const result = await response.json();
 
         if (!response.ok) {
-          throw new Error(result.message || 'Error desconocido al enviar el mensaje.');
+          throw new Error(result.message || 'Error desconocido al enviar tu consulta.');
         }
 
         toast({
-          title: "¡Mensaje Enviado!",
-          description: result.message || "Gracias por tu mensaje. Te responderé lo antes posible.",
+          title: "¡Consulta Enviada!",
+          description: result.message || "Gracias por tu mensaje. Me pondré en contacto contigo lo antes posible.",
         });
         reset();
       } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Hubo un problema al enviar tu mensaje.";
+        const errorMessage = error instanceof Error ? error.message : "Hubo un problema al enviar tu consulta.";
         toast({
           title: "Error al Enviar",
           description: `${errorMessage} Por favor, inténtelo de nuevo más tarde.`,
@@ -79,12 +78,12 @@ export function ContactForm() {
         </div>
       </div>
       <div>
-        <Label htmlFor="message" className="font-medium">Mensaje</Label>
+        <Label htmlFor="message" className="font-medium">Describe tu problema o consulta</Label>
         <Textarea
           id="message"
           {...register("message")}
-          placeholder="Escribe tu mensaje aquí..."
-          rows={5}
+          placeholder="Describe el problema que estás experimentando con tu equipo o cualquier otra consulta técnica que tengas..."
+          rows={6}
           className="mt-1"
           aria-invalid={!!errors.message}
         />
@@ -98,7 +97,7 @@ export function ContactForm() {
           ) : (
             <Send className="mr-2 h-4 w-4" />
           )}
-          Enviar Mensaje
+          Enviar Consulta
         </Button>
       </div>
     </form>
