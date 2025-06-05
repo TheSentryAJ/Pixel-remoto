@@ -22,29 +22,36 @@ export default function BlogListPage() {
         </p>
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {articles.map((article) => (
-          <Card key={article.id} className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
-            <CardHeader className="pt-6 pb-2">
-              <CardTitle className="font-headline text-xl text-primary hover:underline">
-                <Link href={`/blog/${article.slug}`}>{article.title}</Link>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow p-6 pt-0">
-              <CardDescription className="text-muted-foreground mb-4 text-sm">{article.excerpt}</CardDescription>
-            </CardContent>
-            <CardFooter className="p-6 pt-0 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-              <div className="flex items-center text-xs text-muted-foreground mb-4 sm:mb-0">
-                <CalendarDays className="w-4 h-4 mr-2" />
-                <span>{article.date}</span>
-              </div>
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" asChild>
-                <Link href={`/blog/${article.slug}`}>Leer Más</Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
+        {articles.map((article) => {
+          const parsedDate = new Date(article.date);
+          const displayDate = !isNaN(parsedDate.getTime())
+            ? parsedDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
+            : 'Fecha inválida';
+          return (
+            <Card key={article.id} className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden border">
+              <CardHeader className="pt-6 pb-2">
+                <CardTitle className="font-headline text-xl text-primary hover:underline">
+                  <Link href={`/blog/${article.slug}`}>{article.title}</Link>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow p-6 pt-0">
+                <CardDescription className="text-muted-foreground mb-4 text-sm">{article.excerpt}</CardDescription>
+              </CardContent>
+              <CardFooter className="p-6 pt-0 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <div className="flex items-center text-xs text-muted-foreground mb-4 sm:mb-0">
+                  <CalendarDays className="w-4 h-4 mr-2" />
+                  <span>{displayDate}</span>
+                </div>
+                <Button variant="outline" className="border-accent text-accent hover:bg-accent/10 hover:text-accent-foreground" asChild>
+                  <Link href={`/blog/${article.slug}`}>Leer Más</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          );
+        })}
       </div>
     </Container>
   );
 }
 
+    

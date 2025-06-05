@@ -11,7 +11,7 @@ type Props = {
   params: { slug: string };
 };
 
-const siteUrl = 'https://pixel-remoto.pages.dev'; // Reemplaza con tu URL de producción
+const siteUrl = 'https://pixel-remoto.pages.dev'; 
 const siteAuthor = 'Antonio J.';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -22,9 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   
-  const articlePublishedTime = new Date(article.date).toISOString(); // Asumiendo que article.date es parseable
-  // Para image, si tienes una imagen específica por artículo, úsala. Sino una genérica.
-  const imageUrl = article.imageUrl || `${siteUrl}/og-image-blog.png`; // Crea og-image-blog.png o usa una imagen por artículo
+  const parsedDate = new Date(article.date);
+  let articlePublishedTime: string | undefined = undefined;
+
+  if (!isNaN(parsedDate.getTime())) {
+    articlePublishedTime = parsedDate.toISOString();
+  } else {
+    console.error(`[generateMetadata] Invalid date for article slug '${article.slug}': ${article.date}`);
+  }
+  
+  const imageUrl = article.imageUrl || `${siteUrl}/og-image-blog.png`; 
 
   return {
     title: `${article.title} | ${siteAuthor}`,
@@ -70,12 +77,31 @@ export default function ArticlePage({ params }: Props) {
     notFound();
   }
 
+  const parsedDisplayDate = new Date(article.date);
+  const displayDate = !isNaN(parsedDisplayDate.getTime())
+    ? parsedDisplayDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
+    : 'Fecha inválida';
+
+  let schemaDatePublished: string;
+  let schemaDateModified: string;
+  const parsedSchemaDate = new Date(article.date);
+
+  if (!isNaN(parsedSchemaDate.getTime())) {
+    schemaDatePublished = parsedSchemaDate.toISOString();
+    schemaDateModified = parsedSchemaDate.toISOString(); 
+  } else {
+    console.error(`[BlogPostingSchema] Invalid date for article slug '${article.slug}': ${article.date}. Using current date as fallback.`);
+    const fallbackDate = new Date().toISOString();
+    schemaDatePublished = fallbackDate;
+    schemaDateModified = fallbackDate;
+  }
+
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": article.title,
     "description": article.excerpt,
-    "image": article.imageUrl || `${siteUrl}/og-image-blog.png`, // Asegúrate que la imagen exista
+    "image": article.imageUrl || `${siteUrl}/og-image-blog.png`, 
     "author": {
       "@type": "Person",
       "name": siteAuthor,
@@ -86,11 +112,11 @@ export default function ArticlePage({ params }: Props) {
       "name": "Pixel Remoto",
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/logo.png` // Asegúrate que este logo exista en public
+        "url": `${siteUrl}/logo.png` 
       }
     },
-    "datePublished": new Date(article.date).toISOString(),
-    "dateModified": new Date(article.date).toISOString(), // Actualizar si hay modificaciones
+    "datePublished": schemaDatePublished,
+    "dateModified": schemaDateModified,
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `${siteUrl}/blog/${article.slug}`
@@ -109,7 +135,7 @@ export default function ArticlePage({ params }: Props) {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline text-primary mb-3">{article.title}</h1>
           <div className="flex items-center justify-center text-sm text-muted-foreground">
             <CalendarDays className="w-4 h-4 mr-2" />
-            <span>Publicado el {article.date}</span>
+            <span>Publicado el {displayDate}</span>
           </div>
         </header>
         
@@ -127,3 +153,5 @@ export default function ArticlePage({ params }: Props) {
     </>
   );
 }
+
+    
