@@ -15,7 +15,7 @@ export const articles: Article[] = [
     id: 'senales-puesta-a-punto',
     title: '5 Señales Claras de que tu Ordenador Necesita una Puesta a Punto',
     excerpt: 'Descubre los síntomas comunes que indican que tu PC podría beneficiarse de un mantenimiento para mejorar su rendimiento y estabilidad.',
-    date: '10 de Junio, 2024',
+    date: '10 de Junio, 2025',
     slug: 'senales-puesta-a-punto',
     content: `
 <p>Su ordenador personal, herramienta indispensable en la rutina diaria —ya sea para el ámbito laboral, académico o de ocio—, puede experimentar una disminución en su rendimiento o comenzar a manifestar problemas incipientes con el uso continuado. Ignorar estas señales podría derivar en fallos de mayor envergadura o en una experiencia de usuario notablemente deficiente. A continuación, se detallan cinco indicadores inequívocos de que su equipo informático podría requerir una intervención técnica para su optimización:</p>
@@ -45,7 +45,7 @@ export const articles: Article[] = [
     id: 'copias-de-seguridad',
     title: 'Copias de Seguridad: Tu Red de Seguridad Digital en 3 Sencillos Pasos',
     excerpt: 'Aprende la importancia vital de las copias de seguridad y cómo puedes implementarlas de forma sencilla para proteger tus archivos más valiosos.',
-    date: '12 de Junio, 2024',
+    date: '12 de Junio, 2025',
     slug: 'copias-de-seguridad',
     content: `
 <p>En el panorama digital contemporáneo, nuestros ordenadores se han convertido en repositorios de una vasta cantidad de información crítica: desde fotografías irremplazables y documentos laborales o académicos de gran importancia, hasta proyectos personales de considerable valor. La pérdida de estos datos, ya sea por un fallo del disco duro, un ciberataque de ransomware, un robo o un simple descuido humano, puede acarrear consecuencias devastadoras. Afortunadamente, la prevención es más accesible de lo que comúnmente se piensa, gracias a la implementación de copias de seguridad, su auténtica red de contención digital.</p>
@@ -84,12 +84,12 @@ export const articles: Article[] = [
   },
   {
     id: 'antivirus-gratuito-pago',
-    title: '¿Antivirus Gratuito o de Pago? Mi Recomendación Profesional para 2024',
-    excerpt: 'Analizamos las diferencias clave entre las soluciones antivirus gratuitas y de pago para ayudarte a decidir cuál es la mejor opción para proteger tu equipo.',
-    date: '14 de Junio, 2024',
+    title: '¿Antivirus Gratuito o de Pago? Mi Recomendación Profesional para 2025',
+    excerpt: 'Analizamos las diferencias clave entre las soluciones antivirus gratuitas y de pago para ayudarte a decidir cuál es la mejor opción para proteger tu equipo en 2025.',
+    date: '14 de Junio, 2025',
     slug: 'antivirus-gratuito-pago',
     content: `
-<p>La salvaguarda de nuestros equipos informáticos constituye una prioridad ineludible en el entorno digital actual. Dada la proliferación de amenazas en internet —virus, malware, ransomware, phishing—, disponer de un software antivirus robusto se ha vuelto fundamental. Sin embargo, persiste una disyuntiva común: ¿es suficiente una solución gratuita o resulta pertinente invertir en una alternativa de pago? Desde mi perspectiva como técnico especializado, ofrezco un análisis para este 2024.</p>
+<p>La salvaguarda de nuestros equipos informáticos constituye una prioridad ineludible en el entorno digital actual. Dada la proliferación de amenazas en internet —virus, malware, ransomware, phishing—, disponer de un software antivirus robusto se ha vuelto fundamental. Sin embargo, persiste una disyuntiva común: ¿es suficiente una solución gratuita o resulta pertinente invertir en una alternativa de pago? Desde mi perspectiva como técnico especializado, ofrezco un análisis para este 2025.</p>
 
 <p><strong>Antivirus Gratuitos: Cobertura Esencial</strong></p>
 <p>Las soluciones antivirus gratuitas, tales como Windows Defender (integrado en el sistema operativo Windows), Avast Free Antivirus o AVG AntiVirus FREE, han experimentado una notable evolución en años recientes. Estas herramientas proporcionan una protección básica competente frente a las ciberamenazas más extendidas.</p>
@@ -128,8 +128,8 @@ export const articles: Article[] = [
   <li><strong>Consumo de Recursos:</strong> Algunas suites de seguridad muy completas podrían, en ciertos casos, demandar más recursos del sistema, aunque este aspecto ha mejorado significativamente en las versiones actuales.</li>
 </ul>
 
-<p><strong>Mi Recomendación Profesional para 2024:</strong></p>
-<p>Para un <strong>usuario doméstico con un perfil de uso básico</strong> —navegación web, gestión de correo electrónico y ofimática—, una solución antivirus gratuita competente como <strong>Windows Defender</strong> (en sistemas Windows 10 u 11 debidamente actualizados), complementada con prácticas de navegación seguras (evitar descargas de fuentes no confiables, no abrir correos electrónicos sospechosos), puede resultar adecuada. Se puede considerar la realización de análisis periódicos con herramientas como Malwarebytes Free.</p>
+<p><strong>Mi Recomendación Profesional para 2025:</strong></p>
+<p>Para un <strong>usuario doméstico con un perfil de uso básico</strong> —navegación web, gestión de correo electrónico y ofimática—, una solución antivirus gratuita competente como <strong>Windows Defender</strong> (en sistemas Windows 10, 11 o posteriores debidamente actualizados), complementada con prácticas de navegación seguras (evitar descargas de fuentes no confiables, no abrir correos electrónicos sospechosos), puede resultar adecuada. Se puede considerar la realización de análisis periódicos con herramientas como Malwarebytes Free.</p>
 
 <p>No obstante, <strong>recomiendo encarecidamente una solución de pago si:</strong></p>
 <ul>
@@ -150,7 +150,7 @@ export const articles: Article[] = [
     id: 'seguridad-wifi',
     title: 'Mantén tu WiFi Seguro: Consejos Esenciales para Proteger tu Red Doméstica',
     excerpt: 'Tu red WiFi es la puerta de entrada a tus dispositivos. Aprende a configurarla de forma segura para evitar intrusos y proteger tu información personal.',
-    date: '16 de Junio, 2024',
+    date: '16 de Junio, 2025',
     slug: 'seguridad-wifi',
     content: `
 <p>En la era de la interconexión digital, nuestra red WiFi doméstica se ha erigido como el epicentro de la actividad tecnológica en el hogar. A través de ella, accedemos a internet, conectamos ordenadores, dispositivos móviles, tabletas, televisores inteligentes e, incluso, una creciente variedad de electrodomésticos. No obstante, una red WiFi insuficientemente protegida representa una vulnerabilidad significativa, una puerta de acceso para intrusos que podrían desde usurpar su ancho de banda hasta acceder a información personal sensible o infectar sus dispositivos con software malicioso.</p>
@@ -188,7 +188,7 @@ export const articles: Article[] = [
     id: 'portatil-sobrecalentamiento',
     title: '¿Por Qué mi Portátil se Sobrecalienta? Causas Comunes y Cómo Solucionarlo',
     excerpt: 'El calor excesivo puede dañar tu portátil. Descubre las causas más frecuentes del sobrecalentamiento y qué puedes hacer para mantenerlo fresco y funcionando óptimamente.',
-    date: '18 de Junio, 2024',
+    date: '18 de Junio, 2025',
     slug: 'portatil-sobrecalentamiento',
     content: `
 <p>Un ordenador portátil que genera una temperatura superior a la habitual no solo resulta incómodo durante su manipulación, sino que también puede ser un síntoma de problemas subyacentes. Estas condiciones, si se prolongan, tienen el potencial de mermar el rendimiento del equipo e, incluso, ocasionar daños irreparables en sus componentes internos. Si detecta que su portátil se sobrecalienta, es crucial identificar la causa raíz y adoptar las medidas correctivas pertinentes.</p>
