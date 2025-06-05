@@ -105,3 +105,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    /* This will scroll one full set of the original unique testimonials */
+    /* If duplicatedTestimonials.length is 2 * allTestimonials.length, then scroll by -50% */
+    /* If duplicatedTestimonials.length is K * allTestimonials.length, then scroll by -( (K-1)/K * 100 )% */
+    /* For a simple duplication (K=2), it's -50% */
+    transform: translateX(-50%); 
+  }
+}
