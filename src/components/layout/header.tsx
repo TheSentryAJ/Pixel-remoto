@@ -26,26 +26,25 @@ export function Header() {
             <span className="font-headline">Antonio J.</span>
           </Link>
 
-          {/* Desktop Navigation - SIMPLIFIED FOR DEBUG */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <ThemeToggleButton /> {/* THE BUTTON IN QUESTION */}
-            <Link href="/#areas-de-soporte" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-                Áreas de Soporte (Test Link)
-            </Link>
-            {/* {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))} */}
-          </nav>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4"> {/* Adjusted space for nav items and toggle */}
+            <nav className="flex items-center space-x-6"> {/* Links */}
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <ThemeToggleButton /> {/* Placed after nav items on desktop */}
+          </div>
 
           {/* Mobile Navigation Trigger */}
           <div className="md:hidden flex items-center">
-            <ThemeToggleButton /> {/* Also here for mobile */}
+            <ThemeToggleButton /> {/* For the mobile header bar, next to hamburger */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="ml-2">
@@ -76,6 +75,7 @@ export function Header() {
                         {item.label}
                       </Link>
                     ))}
+                    {/* You could also add another ThemeToggleButton here if you want it inside the opened mobile menu list */}
                   </nav>
                 </div>
               </SheetContent>
