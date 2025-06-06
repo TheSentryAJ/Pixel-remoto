@@ -10,7 +10,7 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 const siteName = 'Pixel Remoto';
-const siteUrl = 'https://pixel-remoto.pages.dev'; // Reemplaza con tu URL de producción
+const siteUrl = 'https://pixel-remoto.pages.dev';
 const siteDescription = 'Asistencia informática y soluciones tecnológicas por Antonio J. Obtén ayuda con problemas de PC, seguridad, configuración de equipos y más.';
 const siteAuthor = 'Antonio J.';
 const twitterHandle = '@tuTwitter'; // Reemplaza con tu handle de Twitter si tienes
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png', // Asegúrate de tener estos iconos en /public
-    apple: '/apple-touch-icon.png', // Asegúrate de tener estos iconos en /public
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: siteName,
     images: [
       {
-        url: `${siteUrl}/og-image.png`, // Crea este archivo en /public (1200x630px)
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
         alt: `Logo de ${siteName}`,
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     site: twitterHandle,
     creator: twitterHandle,
-    images: [`${siteUrl}/twitter-card.png`], // Crea este archivo en /public (e.g. 1200x675px)
+    images: [`${siteUrl}/twitter-card.png`],
   },
   verification: {
     google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
@@ -133,10 +133,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
       <head>
-        {/* Preconnect a dominios de fuentes si no usas next/font o para otros recursos críticos */}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
-        {/* <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> */}
-        {/* next/font se encarga de las optimizaciones de fuentes, incluyendo preloads si es necesario */}
+        <meta name="google-site-verification" content="tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM" />
+        <meta name="msvalidate.01" content="E63AA6497EF2E996A8F141795872DC89" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
