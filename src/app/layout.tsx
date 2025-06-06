@@ -6,26 +6,28 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 import Script from 'next/script';
+import { ThemeProvider } from '@/components/providers/theme-provider';
+import { cookies } from 'next/headers'; // For server-side cookie reading
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 
 const siteName = 'Pixel Remoto';
 const siteUrl = 'https://pixel-remoto.pages.dev';
-const siteDescription = 'Asistencia informática y soluciones tecnológicas por Antonio J. Obtén ayuda con problemas de PC, seguridad, configuración de equipos y más.';
+const siteDescription = 'Como técnico informático, ofrezco soporte y asistencia para resolver tus desafíos tecnológicos. Ayuda con la optimización de rendimiento, seguridad y software.';
 const siteAuthor = 'Antonio J.';
-const twitterHandle = '@tuTwitter'; // Reemplaza con tu handle de Twitter si tienes
+const twitterHandle = '@tuTwitter'; 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | ${siteAuthor} - Soporte Técnico y Soluciones IT`,
+    default: `Soporte Informático Remoto | ${siteName} - Asistencia Técnica`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
   generator: 'Next.js',
   applicationName: siteName,
   referrer: 'origin-when-cross-origin',
-  keywords: ['soporte informático', 'asistencia técnica', 'soluciones IT', 'Antonio J', 'reparación PC', 'seguridad informática', 'blog tecnología'],
+  keywords: ['soporte informático', 'asistencia técnica', 'soluciones IT', 'Antonio J', 'reparación PC', 'seguridad informática', 'blog tecnología', 'tecnico informatico', 'ayuda informatica', 'soporte tecnico remoto', 'resolucion de problemas de PC', 'experto en informatica'],
   authors: [{ name: siteAuthor, url: siteUrl }],
   creator: siteAuthor,
   publisher: siteAuthor,
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   openGraph: {
     title: {
-      default: `${siteName} | ${siteAuthor} - Soporte Técnico y Soluciones IT`,
+      default: `Soporte Informático Remoto | ${siteName} - Asistencia Técnica`,
       template: `%s | ${siteName}`,
     },
     description: siteDescription,
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: {
-      default: `${siteName} | ${siteAuthor} - Soporte Técnico y Soluciones IT`,
+      default: `Soporte Informático Remoto | ${siteName} - Asistencia Técnica`,
       template: `%s | ${siteName}`,
     },
     description: siteDescription,
@@ -85,17 +87,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // appleWebApp: { // Si quieres configurar para PWA en iOS
-  //   title: siteName,
-  //   statusBarStyle: 'default',
-  //   capable: true,
-  // },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F5F5F5' }, // --background HSL(0 0% 96.1%)
-    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' }, // --background dark HSL(240 10% 3.9%)
+    { media: '(prefers-color-scheme: light)', color: '#F5F5F5' }, 
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' }, 
   ],
   colorScheme: 'light dark',
 };
@@ -118,7 +115,7 @@ const personSchema = {
   "name": siteAuthor,
   "url": siteUrl,
   "sameAs": [
-    // "https://www.linkedin.com/in/tu-perfil/", // Añade tus perfiles sociales
+    // "https://www.linkedin.com/in/tu-perfil/", 
     // "https://twitter.com/tuTwitter"
   ],
   "jobTitle": "Técnico Informático"
@@ -130,8 +127,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = cookies();
+  const themeCookie = cookieStore.get('theme');
+  // Prioritize cookie, default to 'light' if no cookie for SSR.
+  // Client-side ThemeProvider will refine this with system preference if cookie is absent.
+  const initialTheme = themeCookie?.value === 'dark' ? 'dark' : 'light';
+  const themeClass = initialTheme === 'dark' ? 'dark' : '';
+
   return (
-    <html lang="es" className={`${inter.variable} scroll-smooth`}>
+    <html lang="es" className={`${themeClass} ${inter.variable} scroll-smooth`}>
       <head>
         <meta name="google-site-verification" content="tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM" />
         <meta name="msvalidate.01" content="E63AA6497EF2E996A8F141795872DC89" />
@@ -145,15 +149,17 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
-        <a href="#main-content" className="skip-to-content-link">
-          Saltar al contenido principal
-        </a>
-        <Header />
-        <main id="main-content" className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <Toaster />
+        <ThemeProvider initialTheme={initialTheme}>
+          <a href="#main-content" className="skip-to-content-link">
+            Saltar al contenido principal
+          </a>
+          <Header />
+          <main id="main-content" className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
         <Script id="service-worker-registration">
           {`
             if ('serviceWorker' in navigator) {

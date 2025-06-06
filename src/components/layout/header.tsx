@@ -5,9 +5,10 @@ import { useState } from 'react';
 import { Menu, X, Mountain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ThemeToggleButton } from '@/components/theme-toggle-button'; // Import the toggle button
 
 const navItems = [
-  { href: '/#areas-de-soporte', label: 'Áreas de Soporte' }, // Kept for homepage quick nav if SupportAreasSection is still there
+  { href: '/#areas-de-soporte', label: 'Áreas de Soporte' },
   { href: '/soluciones', label: 'Soluciones' },
   { href: '/blog', label: 'Blog' },
   { href: '/sobre-mi', label: 'Sobre Mí' },
@@ -27,7 +28,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -37,13 +38,15 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <ThemeToggleButton /> {/* Add toggle button to desktop nav */}
           </nav>
 
           {/* Mobile Navigation Trigger */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
+            <ThemeToggleButton /> {/* Add toggle button to mobile nav trigger area */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="ml-2">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Abrir menú</span>
                 </Button>

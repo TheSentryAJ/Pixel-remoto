@@ -51,7 +51,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
+  html.dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -103,7 +103,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300 ease-in-out;
   }
 }
 
