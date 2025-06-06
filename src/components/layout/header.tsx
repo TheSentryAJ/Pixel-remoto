@@ -29,6 +29,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
+            <ThemeToggleButton /> {/* Moved toggle button here */}
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -38,7 +39,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <ThemeToggleButton /> {/* Add toggle button to desktop nav */}
           </nav>
 
           {/* Mobile Navigation Trigger */}
