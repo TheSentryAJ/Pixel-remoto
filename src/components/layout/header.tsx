@@ -1,3 +1,4 @@
+
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
@@ -27,8 +28,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4"> {/* Adjusted space for nav items and toggle */}
-            <nav className="flex items-center space-x-6"> {/* Links */}
+          <div className="hidden md:flex items-center space-x-1"> {/* Reduced space-x for testing */}
+            <nav className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
@@ -39,12 +40,42 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-            <ThemeToggleButton /> {/* Placed after nav items on desktop */}
+            {/* Simplified ThemeToggleButton */}
+            <ThemeToggleButton />
+            {/* Basic HTML Button for extreme debugging */}
+            <button
+              style={{
+                backgroundColor: 'lime',
+                color: 'black',
+                border: '2px solid blue',
+                padding: '8px',
+                marginLeft: '8px',
+                zIndex: 99999
+              }}
+              onClick={() => console.log('Plain HTML button clicked')}
+            >
+              TEST HTML BTN
+            </button>
           </div>
 
           {/* Mobile Navigation Trigger */}
           <div className="md:hidden flex items-center">
-            <ThemeToggleButton /> {/* For the mobile header bar, next to hamburger */}
+            {/* Simplified ThemeToggleButton for mobile */}
+            <ThemeToggleButton />
+             {/* Basic HTML Button for mobile */}
+            <button
+              style={{
+                backgroundColor: 'cyan',
+                color: 'black',
+                border: '2px solid magenta',
+                padding: '4px',
+                marginLeft: '4px',
+                zIndex: 99999
+              }}
+              onClick={() => console.log('Plain Mobile HTML button clicked')}
+            >
+              M-TEST
+            </button>
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="ml-2">
@@ -75,7 +106,6 @@ export function Header() {
                         {item.label}
                       </Link>
                     ))}
-                    {/* You could also add another ThemeToggleButton here if you want it inside the opened mobile menu list */}
                   </nav>
                 </div>
               </SheetContent>
