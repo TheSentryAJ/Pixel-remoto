@@ -13,13 +13,13 @@ export function CoverageMapSection() {
             Nuestra Cobertura
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            En <strong>Pixel Remoto</strong>, ofrecemos nuestros servicios principalmente de forma remota, llegando a donde nos necesites.
+            En <strong>Pixel Remoto</strong>, extendemos nuestros servicios digitalmente sin fronteras, listos para asistirte dondequiera que te encuentres.
           </p>
           <p className="text-muted-foreground mb-4">
-            Para servicios que requieran presencia física, tenemos disponibilidad en <strong>Alhaurín el Grande</strong> y áreas cercanas de la <strong>provincia de Málaga</strong> (Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola).
+            Para intervenciones que precisen de nuestra presencia, estamos disponibles en <strong>Alhaurín el Grande</strong> y en localidades adyacentes dentro de la <strong>provincia de Málaga</strong> (tales como Coín, Cártama, Alhaurín de la Torre, Mijas, Fuengirola).
           </p>
           <p className="text-muted-foreground">
-            Si tienes dudas sobre la cobertura en tu zona o necesitas un servicio específico, no dudes en <Link href="#contacto" className="text-primary hover:underline font-medium">contactarnos</Link>.
+            ¿Interesado en confirmar nuestra disponibilidad en tu área o requieres un servicio particular? <Link href="#contacto" className="text-primary hover:underline font-medium">Contáctanos</Link> y te informaremos.
           </p>
         </div>
         <div className="relative h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-background order-1 md:order-2">
