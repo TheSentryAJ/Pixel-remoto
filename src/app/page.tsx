@@ -12,14 +12,14 @@ import { TestimonialsSection } from '@/components/sections/testimonials-section'
 const siteUrl = 'https://pixel-remoto.pages.dev';
 
 export const metadata: Metadata = {
-  title: 'Soporte Informático Remoto | Pixel Remoto - Asistencia Técnica',
-  description: '¿Necesitas ayuda informática? Ofrezco soporte informático remoto como técnico especialista. Soluciones para problemas de rendimiento, seguridad y software.',
+  title: 'Pixel Remoto - Soluciones Tecnológicas Innovadoras',
+  description: 'Pixel Remoto: Asistencia técnica y soluciones tecnológicas innovadoras para optimizar tu rendimiento y seguridad. Soporte informático experto para tus desafíos tecnológicos.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Soporte Informático Remoto | Pixel Remoto - Asistencia Técnica',
-    description: '¿Necesitas ayuda informática? Ofrezco soporte informático remoto como técnico especialista. Soluciones para problemas de rendimiento, seguridad y software.',
+    title: 'Pixel Remoto - Soluciones Tecnológicas Innovadoras',
+    description: 'Pixel Remoto: Asistencia técnica y soluciones tecnológicas innovadoras para optimizar tu rendimiento y seguridad. Soporte informático experto para tus desafíos tecnológicos.',
     url: `${siteUrl}/`,
     type: 'website',
      images: [
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`, 
         width: 1200,
         height: 630,
-        alt: `Logo de Pixel Remoto - Soporte Informático`,
+        alt: `Logo de Pixel Remoto - Soluciones Tecnológicas`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Soporte Informático Remoto | Pixel Remoto - Asistencia Técnica',
-    description: '¿Necesitas ayuda informática? Ofrezco soporte informático remoto como técnico especialista. Soluciones para problemas de rendimiento, seguridad y software.',
+    title: 'Pixel Remoto - Soluciones Tecnológicas Innovadoras',
+    description: 'Pixel Remoto: Asistencia técnica y soluciones tecnológicas innovadoras para optimizar tu rendimiento y seguridad. Soporte informático experto para tus desafíos tecnológicos.',
     images: [`${siteUrl}/twitter-card.png`],
   },
 };
