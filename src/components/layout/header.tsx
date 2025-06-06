@@ -1,11 +1,10 @@
-
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, Mountain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ThemeToggleButton } from '@/components/theme-toggle-button'; // Import the toggle button
+import { ThemeToggleButton } from '@/components/theme-toggle-button';
 
 const navItems = [
   { href: '/#areas-de-soporte', label: 'Áreas de Soporte' },
@@ -27,10 +26,13 @@ export function Header() {
             <span className="font-headline">Antonio J.</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - SIMPLIFIED FOR DEBUG */}
           <nav className="hidden md:flex items-center space-x-6">
-            <ThemeToggleButton /> {/* Moved toggle button here */}
-            {navItems.map((item) => (
+            <ThemeToggleButton /> {/* THE BUTTON IN QUESTION */}
+            <Link href="/#areas-de-soporte" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                Áreas de Soporte (Test Link)
+            </Link>
+            {/* {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
@@ -38,12 +40,12 @@ export function Header() {
               >
                 {item.label}
               </Link>
-            ))}
+            ))} */}
           </nav>
 
           {/* Mobile Navigation Trigger */}
           <div className="md:hidden flex items-center">
-            <ThemeToggleButton /> {/* Add toggle button to mobile nav trigger area */}
+            <ThemeToggleButton /> {/* Also here for mobile */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="ml-2">

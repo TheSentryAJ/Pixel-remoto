@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Moon, Sun } from "lucide-react";
@@ -14,12 +13,13 @@ export function ThemeToggleButton() {
       size="icon"
       onClick={toggleTheme}
       aria-label={theme === "light" ? "Activar modo oscuro" : "Activar modo claro"}
-      className="bg-red-500 border-2 border-green-500 hover:bg-red-600" // TEMPORARY DEBUG STYLES
+      className="bg-red-500 border-2 border-green-500 hover:bg-red-600 p-2" // TEMPORARY DEBUG STYLES, added p-2
     >
+      TEST BTN {/* ADDED VISIBLE TEXT */}
       {theme === "light" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] text-white" /> // Added text-white for visibility against red
+        <Sun className="h-[1.2rem] w-[1.2rem] text-white" />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] text-white" /> // Added text-white for visibility against red
+        <Moon className="h-[1.2rem] w-[1.2rem] text-white" />
       )}
       <span className="sr-only">Cambiar tema</span>
     </Button>
