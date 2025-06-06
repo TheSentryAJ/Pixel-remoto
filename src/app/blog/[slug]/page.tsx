@@ -1,4 +1,6 @@
 
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { articles, type Article } from '@/data/articles';
 import { Container } from '@/components/ui/container';
@@ -153,5 +155,3 @@ export default function ArticlePage({ params }: Props) {
     </>
   );
 }
-
-    

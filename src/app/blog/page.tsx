@@ -1,4 +1,6 @@
 
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { articles } from '@/data/articles';
@@ -53,5 +55,3 @@ export default function BlogListPage() {
     </Container>
   );
 }
-
-    

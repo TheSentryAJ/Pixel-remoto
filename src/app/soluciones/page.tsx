@@ -1,4 +1,6 @@
 
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { SupportAreasSection } from '@/components/sections/support-areas-section';
 import { Container } from '@/components/ui/container';

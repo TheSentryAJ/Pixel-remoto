@@ -1,4 +1,6 @@
 
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';

@@ -1,4 +1,6 @@
 
+export const runtime = 'edge';
+
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/sections/hero-section';
 import { SupportAreasSection } from '@/components/sections/support-areas-section';
