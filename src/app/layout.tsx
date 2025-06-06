@@ -74,7 +74,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
-    // other: { me: ['my-email@example.com', 'my-link'], }, // Si necesitas otras verificaciones
+    other: { 
+      me: ['ajmanza98@gmail.com', siteUrl],
+      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'], // Added Bing verification here
+    },
   },
   robots: {
     index: true,
@@ -129,16 +132,14 @@ export default function RootLayout({
 }>) {
   const cookieStore = cookies();
   const themeCookie = cookieStore.get('theme');
-  // Prioritize cookie, default to 'light' if no cookie for SSR.
-  // Client-side ThemeProvider will refine this with system preference if cookie is absent.
   const initialTheme = themeCookie?.value === 'dark' ? 'dark' : 'light';
   const themeClass = initialTheme === 'dark' ? 'dark' : '';
 
   return (
     <html lang="es" className={`${themeClass} ${inter.variable} scroll-smooth`}>
       <head>
-        <meta name="google-site-verification" content="tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM" />
-        <meta name="msvalidate.01" content="E63AA6497EF2E996A8F141795872DC89" />
+        {/* Google Verification moved to metadata object */}
+        {/* Bing Verification moved to metadata object */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
