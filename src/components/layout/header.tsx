@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { Menu, X, Mountain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ThemeToggleButton } from '@/components/theme-toggle-button';
 
 const navItems = [
   { href: '/#areas-de-soporte', label: 'Áreas de Soporte' },
@@ -27,28 +26,24 @@ export function Header() {
             <span className="font-headline">Antonio J.</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4"> {/* Increased space slightly */}
-            <nav className="flex items-center space-x-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <ThemeToggleButton /> {/* Placed after nav items for desktop */}
-          </div>
+          {/* Desktop Navigation - Simplified structure */}
+          <nav className="hidden md:flex space-x-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
           {/* Mobile Navigation Trigger */}
-          <div className="md:hidden flex items-center space-x-2"> {/* Added space-x-2 */}
-            <ThemeToggleButton /> {/* Placed before menu trigger for mobile */}
+          <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon"> {/* Removed ml-2, handled by space-x */}
+                <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Abrir menú</span>
                 </Button>
