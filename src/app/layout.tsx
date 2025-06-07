@@ -13,7 +13,7 @@ const siteName = 'Pixel Remoto';
 const siteUrl = 'https://pixel-remoto.pages.dev';
 const siteDescription = 'Como técnico informático, ofrezco soporte y asistencia para resolver tus desafíos tecnológicos. Ayuda con la optimización de rendimiento, seguridad y software.';
 const siteAuthor = 'Antonio J.';
-const twitterHandle = '@tuTwitter';
+const twitterHandle = '@tuTwitter'; // Reemplazar con el real si existe
 const logoUrl = `${siteUrl}/logo.png`;
 
 export const metadata: Metadata = {
@@ -72,10 +72,10 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/twitter-card.png`],
   },
   verification: {
-    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
+    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM', // Asegúrate que esta es la correcta
     other: {
-      me: ['ajmanza98@gmail.com', siteUrl],
-      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'],
+      me: ['ajmanza98@gmail.com', siteUrl], // Actualizar si es necesario
+      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'], // Asegúrate que esta es la correcta
     },
   },
   robots: {
@@ -111,10 +111,10 @@ const siteSchema = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Pixel Remoto", // Changed to Pixel Remoto for consistency
+    "name": "Pixel Remoto",
     "logo": {
       "@type": "ImageObject",
-      "url": logoUrl,
+      "url": logoUrl, // Usará /logo.png
     }
   }
 };
@@ -143,7 +143,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
-      <head>
+<head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
@@ -153,7 +153,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
+<body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
           <a href="#main-content" className="skip-to-content-link">
             Saltar al contenido principal
           </a>
