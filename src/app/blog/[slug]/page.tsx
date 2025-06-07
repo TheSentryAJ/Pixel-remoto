@@ -1,8 +1,7 @@
-
 export const runtime = 'edge';
 
 import type { Metadata } from 'next';
-import { articles, type Article } from '@/data/articles';
+import { articles } from '@/data/articles';
 import { Container } from '@/components/ui/container';
 import { notFound } from 'next/navigation';
 import { CalendarDays } from 'lucide-react';

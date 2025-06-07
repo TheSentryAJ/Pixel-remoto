@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { Testimonial } from '@/data/testimonials';
@@ -24,7 +23,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         <Quote className="w-8 h-8 text-primary/50 mb-2" />
       </CardHeader>
       <CardContent className="flex-grow p-6 pt-2">
-        <blockquote className="text-muted-foreground italic text-sm md:text-base">"{quote}"</blockquote>
+        <blockquote className="text-muted-foreground italic text-sm md:text-base">&quot;{quote}&quot;</blockquote>
       </CardContent>
       <CardFooter className="p-6 pt-2 flex items-center gap-3">
         <Avatar className="h-10 w-10">
@@ -67,7 +66,7 @@ export function TestimonialsSection() {
     }
     const timer = setInterval(changePage, CHANGE_INTERVAL + FADE_DURATION); // Intervalo + duración del fade para tiempo total
     return () => clearInterval(timer);
-  }, [changePage, allTestimonials.length]);
+  }, [changePage]); // Removed allTestimonials.length
 
   if (allTestimonials.length === 0) {
     return null; 

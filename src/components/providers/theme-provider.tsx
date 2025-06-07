@@ -3,7 +3,9 @@
 // Keeping it empty to avoid build errors if it's mistakenly imported elsewhere,
 // though the primary fix is removing its usage from the RootLayout.
 import type { ReactNode } from 'react';
+import React from 'react';
 
+// The Theme type is still used in the interface, so keep it.
 type Theme = "light" | "dark";
 
 interface ThemeProviderProps {
@@ -21,7 +23,7 @@ export const useTheme = () => {
   // Returning a default to prevent errors if it's somehow still accessed.
   return {
     theme: "light" as Theme,
-    setTheme: (_theme: Theme) => {},
+    setTheme: () => {},
     toggleTheme: () => {},
   };
 };

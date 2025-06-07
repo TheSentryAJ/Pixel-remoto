@@ -1,6 +1,4 @@
 
-import type { LucideIcon } from 'lucide-react'; // Placeholder, not used for now
-
 export interface Project {
   id: string;
   title: string;

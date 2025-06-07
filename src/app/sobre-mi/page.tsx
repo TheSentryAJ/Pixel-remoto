@@ -1,4 +1,3 @@
-
 export const runtime = 'edge';
 
 import type { Metadata } from 'next';
@@ -58,7 +57,7 @@ export default function SobreMiPage() {
             Con varios años de experiencia en el sector, mi trayectoria como <strong>experto en informática</strong> me ha permitido enfrentarme a una amplia variedad de desafíos, desde la optimización de equipos para la <strong>resolución de problemas de PC</strong> hasta la configuración de redes seguras y la recuperación de datos. Cada incidencia es un nuevo rompecabezas que me motiva a encontrar la solución más eficiente y efectiva, proporcionando una <strong>asistencia técnica</strong> de calidad.
           </p>
           <p className="text-muted-foreground mb-6">
-            Este espacio, "Pixel Remoto", nació de mi deseo de compartir mis conocimientos y ofrecer <strong>soporte informático</strong> a quienes se sienten abrumados por la tecnología o simplemente necesitan una mano experta para que sus dispositivos funcionen como deberían. Mi enfoque es siempre proactivo, buscando no solo solucionar el problema inmediato con <strong>soporte técnico remoto</strong>, sino también prevenir futuras incidencias.
+            Este espacio, &quot;Pixel Remoto&quot;, nació de mi deseo de compartir mis conocimientos y ofrecer <strong>soporte informático</strong> a quienes se sienten abrumados por la tecnología o simplemente necesitan una mano experta para que sus dispositivos funcionen como deberían. Mi enfoque es siempre proactivo, buscando no solo solucionar el problema inmediato con <strong>soporte técnico remoto</strong>, sino también prevenir futuras incidencias.
           </p>
           <div className="space-y-4 mb-8 p-6 bg-secondary/30 rounded-xl border">
             <div className="flex items-start gap-3">
