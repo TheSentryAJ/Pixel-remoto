@@ -14,7 +14,7 @@ const siteUrl = 'https://pixel-remoto.pages.dev';
 const siteDescription = 'Como técnico informático, ofrezco soporte y asistencia para resolver tus desafíos tecnológicos. Ayuda con la optimización de rendimiento, seguridad y software.';
 const siteAuthor = 'Antonio J.';
 const twitterHandle = '@tuTwitter'; // Reemplazar con el real si existe
-const logoUrl = `${siteUrl}/logo.png`;
+const logoUrl = `${siteUrl}/logo.png`; // This should point to the actual logo file in /public
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -72,10 +72,10 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/twitter-card.png`],
   },
   verification: {
-    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM', // Asegúrate que esta es la correcta
+    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
     other: {
-      me: ['ajmanza98@gmail.com', siteUrl], // Actualizar si es necesario
-      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'], // Asegúrate que esta es la correcta
+      me: ['ajmanza98@gmail.com', siteUrl],
+      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'],
     },
   },
   robots: {
@@ -114,7 +114,7 @@ const siteSchema = {
     "name": "Pixel Remoto",
     "logo": {
       "@type": "ImageObject",
-      "url": logoUrl, // Usará /logo.png
+      "url": logoUrl,
     }
   }
 };
@@ -143,7 +143,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${inter.variable} scroll-smooth`}>
-<head>
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
@@ -153,7 +153,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-<body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
+      <body className="font-body antialiased flex flex-col min-h-screen bg-background text-foreground">
           <a href="#main-content" className="skip-to-content-link">
             Saltar al contenido principal
           </a>
