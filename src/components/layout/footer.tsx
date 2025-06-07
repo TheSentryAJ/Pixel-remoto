@@ -1,7 +1,6 @@
-
 import Link from 'next/link';
-import NextImage from 'next/image'; // Importar NextImage
-// Mountain ya no se importa
+import { Mountain } from 'lucide-react'; // Vuelve a importar Mountain
+// NextImage ya no es necesario para el logo aquí.
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-muted-foreground">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-primary">
-            <NextImage src="/mountain.png" alt="Pixel Remoto Logo" width={24} height={24} />
+            <Mountain className="h-6 w-6" /> {/* Revertido a Mountain de lucide-react */}
             <span className="font-headline">Pixel Remoto</span>
           </Link>
           <p className="text-sm">
