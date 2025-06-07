@@ -13,7 +13,7 @@ const siteName = 'Pixel Remoto';
 const siteUrl = 'https://pixel-remoto.pages.dev';
 const siteDescription = 'Como técnico informático, ofrezco soporte y asistencia para resolver tus desafíos tecnológicos. Ayuda con la optimización de rendimiento, seguridad y software.';
 const siteAuthor = 'Antonio J.';
-const twitterHandle = '@tuTwitter'; // Reemplazar con el real si existe
+const twitterHandle = '@tuTwitter';
 const logoUrl = `${siteUrl}/logo.png`;
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords: ['soporte informático', 'asistencia técnica', 'soluciones IT', 'Antonio J', 'reparación PC', 'seguridad informática', 'blog tecnología', 'tecnico informatico', 'ayuda informatica', 'soporte tecnico remoto', 'resolucion de problemas de PC', 'experto en informatica'],
   authors: [{ name: siteAuthor, url: siteUrl }],
   creator: siteAuthor,
-  publisher: { name: siteAuthor }, // Updated publisher
+  publisher: { name: siteAuthor, logo: { '@type': 'ImageObject', url: logoUrl } },
   formatDetection: {
     email: false,
     address: false,
@@ -111,10 +111,10 @@ const siteSchema = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Pixel Remoto", // Consistent publisher name
+    "name": "Pixel Remoto",
     "logo": {
       "@type": "ImageObject",
-      "url": logoUrl, // Uses the logoUrl defined above
+      "url": logoUrl,
     }
   }
 };
@@ -134,7 +134,6 @@ const personSchema = {
     "name": siteName
   }
 };
-
 
 export default function RootLayout({
   children,
