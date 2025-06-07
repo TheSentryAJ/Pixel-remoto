@@ -1,6 +1,7 @@
 
-import { Mountain } from 'lucide-react';
 import Link from 'next/link';
+import NextImage from 'next/image'; // Importar NextImage
+// Mountain ya no se importa
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,8 +10,8 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-muted-foreground">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-primary">
-            <Mountain className="h-6 w-6" />
-            <span className="font-headline">Pixel Remoto</span> {/* Considerar cambiar a "Antonio J." si el usuario lo desea */}
+            <NextImage src="/mountain.png" alt="Pixel Remoto Logo" width={24} height={24} />
+            <span className="font-headline">Pixel Remoto</span>
           </Link>
           <p className="text-sm">
             &copy; {currentYear} Antonio J. Espacio personal sobre tecnología.

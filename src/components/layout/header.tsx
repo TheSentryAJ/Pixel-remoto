@@ -2,9 +2,10 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Mountain } from 'lucide-react';
+import { Menu, X } from 'lucide-react'; // Mountain ya no se importa
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import NextImage from 'next/image'; // Importar NextImage
 
 const navItems = [
   { href: '/#areas-de-soporte', label: 'Áreas de Soporte' },
@@ -22,7 +23,7 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
-            <Mountain className="h-8 w-8" />
+            <NextImage src="/mountain.png" alt="Pixel Remoto Logo" width={32} height={32} />
             <span className="font-headline">Antonio J.</span>
           </Link>
 
@@ -52,7 +53,7 @@ export function Header() {
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between p-4 border-b">
                      <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary" onClick={() => setMobileMenuOpen(false)}>
-                        <Mountain className="h-7 w-7" />
+                        <NextImage src="/mountain.png" alt="Pixel Remoto Logo" width={28} height={28} /> {/* Ajustado tamaño para móvil */}
                         <span className="font-headline">Antonio J.</span>
                       </Link>
                     <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
