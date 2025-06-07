@@ -28,6 +28,7 @@ export function HeroSection() {
             src="https://i.imgur.com/pyOMB4m.png" 
             alt="Escritorio de trabajo de técnico informático ofreciendo soporte remoto"
             fill={true}
+            sizes="(max-width: 768px) 100vw, 60vw"
             className="object-cover object-right-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
             data-ai-hint="computer support workspace"
             priority 

@@ -1,4 +1,3 @@
-
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -13,8 +12,8 @@ const siteName = 'Pixel Remoto';
 const siteUrl = 'https://pixel-remoto.pages.dev';
 const siteDescription = 'Como técnico informático, ofrezco soporte y asistencia para resolver tus desafíos tecnológicos. Ayuda con la optimización de rendimiento, seguridad y software.';
 const siteAuthor = 'Antonio J.';
-const twitterHandle = '@tuTwitter';
-const logoUrl = `${siteUrl}/logo.png`;
+const twitterHandle = '@tuTwitter'; // Asegúrate de reemplazar esto si tienes un handle de Twitter
+const logoUrl = `${siteUrl}/logo.png`; // Asegúrate de que este archivo exista en /public/logo.png
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,18 +28,24 @@ export const metadata: Metadata = {
   keywords: ['soporte informático', 'asistencia técnica', 'soluciones IT', 'Antonio J', 'reparación PC', 'seguridad informática', 'blog tecnología', 'tecnico informatico', 'ayuda informatica', 'soporte tecnico remoto', 'resolucion de problemas de PC', 'experto en informatica'],
   authors: [{ name: siteAuthor, url: siteUrl }],
   creator: siteAuthor,
-  publisher: { name: siteAuthor, logo: { '@type': 'ImageObject', url: logoUrl } },
+  publisher: {
+    name: siteName, // Usando siteName aquí también
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+    }
+  },
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/favicon.ico', // Asegúrate de que exista en /public/favicon.ico
+    shortcut: '/favicon-16x16.png', // Asegúrate de que exista en /public/favicon-16x16.png
+    apple: '/apple-touch-icon.png', // Asegúrate de que exista en /public/apple-touch-icon.png
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.json', // Asegúrate de que exista en /public/manifest.json
   openGraph: {
     title: {
       default: `Soporte Informático Remoto | ${siteName} - Asistencia Técnica`,
@@ -51,7 +56,7 @@ export const metadata: Metadata = {
     siteName: siteName,
     images: [
       {
-        url: `${siteUrl}/og-image.png`,
+        url: `${siteUrl}/og-image.png`, // Asegúrate de que exista en /public/og-image.png
         width: 1200,
         height: 630,
         alt: `Logo de ${siteName}`,
@@ -69,13 +74,13 @@ export const metadata: Metadata = {
     description: siteDescription,
     site: twitterHandle,
     creator: twitterHandle,
-    images: [`${siteUrl}/twitter-card.png`],
+    images: [`${siteUrl}/twitter-card.png`], // Asegúrate de que exista en /public/twitter-card.png
   },
   verification: {
-    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM',
+    google: 'tVPYb8090VaVMWqQqULdNxWz19G-GHKBxGH-ZMTzofM', // Tu código de verificación de Google
     other: {
-      me: ['ajmanza98@gmail.com', siteUrl],
-      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'],
+      me: ['ajmanza98@gmail.com', siteUrl], // Email y URL para 'me'
+      msvalidate: ['E63AA6497EF2E996A8F141795872DC89'], // Tu código de verificación de Bing/Microsoft
     },
   },
   robots: {
@@ -93,8 +98,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F5F5F5' },
-    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#F5F5F5' }, // Coincide con --background light
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' }, // Coincide con --background dark (240 10% 3.9%)
   ],
   colorScheme: 'light dark',
 };
@@ -111,10 +116,10 @@ const siteSchema = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Pixel Remoto",
+    "name": "Pixel Remoto", // Nombre del publicador
     "logo": {
       "@type": "ImageObject",
-      "url": logoUrl,
+      "url": logoUrl, // URL al logo.png
     }
   }
 };
@@ -125,8 +130,8 @@ const personSchema = {
   "name": siteAuthor,
   "url": siteUrl,
   "sameAs": [
-    // "https://www.linkedin.com/in/tu-perfil/",
-    // "https://twitter.com/tuTwitter"
+    // "https://www.linkedin.com/in/tu-perfil/", // Ejemplo: Descomenta y actualiza si tienes LinkedIn
+    // "https://twitter.com/tuTwitter" // Ejemplo: Descomenta y actualiza si usas Twitter
   ],
   "jobTitle": "Técnico Informático",
   "worksFor": {
